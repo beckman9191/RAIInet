@@ -13,7 +13,6 @@ public:
 	int strength;
 	int x, y;
 	string name;
-	char char_in_grid;
 	bool is_boost;
 	bool is_alive;
 	bool is_revealed;

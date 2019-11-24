@@ -23,13 +23,13 @@ Grid::Grid(int n) : gridsize{ n } {
 		theDisplay.at(i).reserve(n); // reserve n spaces for columns
 		for (int j = 0; j < n; ++j) {
 			if (i == 0 && j == 0) {
-				theDisplay.at(i).at(j) = 'A';
+				theDisplay.at(i).at(j) = vl.at(8).name;
 			}
 			else if (i == 1 && j == 0) {
-				theDisplay.at(i).at(j) = 'B';
+				theDisplay.at(i).at(j) = vl.at(9).name;
 			}
 			else if (i == 2 && j == 0) {
-				theDisplay.at(i).at(j) = 'C';
+				theDisplay.at(i).at(j) = vl.at(10).name;
 			}
 			else if (i == 3 && j == 0) {
 				theDisplay.at(i).at(j) = 'S';
@@ -38,28 +38,28 @@ Grid::Grid(int n) : gridsize{ n } {
 				theDisplay.at(i).at(j) = 'S';
 			}
 			else if (i == 5 && j == 0) {
-				theDisplay.at(i).at(j) = 'F';
+				theDisplay.at(i).at(j) = vl.at(13).name;
 			}
 			else if (i == 6 && j == 0) {
-				theDisplay.at(i).at(j) = 'G';
+				theDisplay.at(i).at(j) = vl.at(14).name;
 			}
 			else if (i == 7 && j == 0) {
-				theDisplay.at(i).at(j) = 'H';
+				theDisplay.at(i).at(j) = vl.at(15).name;
 			}
 			else if (i == 3 && j == 1) {
-				theDisplay.at(i).at(j) = 'D';
+				theDisplay.at(i).at(j) = vl.at(11).name;
 			}
 			else if (i == 4 && j == 1) {
-				theDisplay.at(i).at(j) = 'E';
+				theDisplay.at(i).at(j) = vl.at(12).name;
 			}
 			else if (i == 0 && j == 7) {
-				theDisplay.at(i).at(j) = 'a';
+				theDisplay.at(i).at(j) = vl.at(0).name;
 			}
 			else if (i == 1 && j == 7) {
-				theDisplay.at(i).at(j) = 'b';
+				theDisplay.at(i).at(j) = vl.at(1).name;
 			}
 			else if (i == 2 && j == 7) {
-				theDisplay.at(i).at(j) = 'c';
+				theDisplay.at(i).at(j) = vl.at(2).name;
 			}
 			else if (i == 3 && j == 7) {
 				theDisplay.at(i).at(j) = 'S';
@@ -68,19 +68,19 @@ Grid::Grid(int n) : gridsize{ n } {
 				theDisplay.at(i).at(j) = 'S';
 			}
 			else if (i == 5 && j == 7) {
-				theDisplay.at(i).at(j) = 'f';
+				theDisplay.at(i).at(j) = vl.at(5).name;
 			}
 			else if (i == 6 && j == 7) {
-				theDisplay.at(i).at(j) = 'g';
+				theDisplay.at(i).at(j) = vl.at(6).name;
 			}
 			else if (i == 7 && j == 7) {
-				theDisplay.at(i).at(j) = 'h';
+				theDisplay.at(i).at(j) = vl.at(7).name;
 			}
 			else if (i == 3 && j == 6) {
-				theDisplay.at(i).at(j) = 'd';
+				theDisplay.at(i).at(j) = vl.at(3).name;
 			}
 			else if (i == 4 && j == 6) {
-				theDisplay.at(i).at(j) = 'e';
+				theDisplay.at(i).at(j) = vl.at(4).name;
 			}
 			else {
 				theDisplay.at(i).at(j) = '.';
