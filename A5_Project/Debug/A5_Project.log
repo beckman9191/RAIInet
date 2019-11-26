@@ -1,0 +1,15 @@
+﻿  Link.cpp
+  Grid.cpp
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(13,8): error C2143: syntax error: missing ';' before '*'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(13,8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(13,12): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(14,8): error C2143: syntax error: missing ';' before '*'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(14,8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(14,12): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(11,17): error C2065: 'p1': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(14,17): error C2065: 'p2': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(93,9): error C2065: 'p1': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(93,11): error C2541: 'delete': cannot delete objects that are not pointers
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(94,9): error C2065: 'p2': undeclared identifier
+  Generating Code...
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(94,11): error C2541: 'delete': cannot delete objects that are not pointers
