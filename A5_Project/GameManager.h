@@ -10,15 +10,25 @@ class Link;
 
 class GameManager {
 public:
-	Grid g;
+	Grid &g;
 	Player *p1;
 	Player *p2;
-	std::vector<Link> vec_link; // deletable
+	//std::vector<Link> vec_link; // deletable
 
 public:
-	void notify_move(Link l, Grid& g);
+	void notify_move(Link l); // notify the move from the link
 	
-	void notify_battle_res(Link winner, Link loser, Grid& g);
+	void notify_battle_res(Link winner, Link loser); // notify the battle result from two links
+
+	void notify_boost(Link l); // notify if the ability "Link Boost" is applied to specific link
+
+	void notify_firewall(int x, int y, bool p1_turn); // notify if the ability "Firewall" is applied to specific link
+
+	void notify_download(Link l); // notify if the ablity "Download" is applied to specific link
+
+	void notify_polarize(Link l); // notify if the ablity "Polarize" is applied to specific link
+
+	void notify_scan(Link l); // notify if the ablity "Scan" is applied to specific link
 
 	~GameManager();
 
