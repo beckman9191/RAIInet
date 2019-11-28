@@ -507,7 +507,7 @@ int main(int argc, char* argv[]) {
 			}
 
 		}
-		else if (s == "sequence") {
+		else if (s == "sequence") { // I hate this dude, seriously!!
 		string content;
 
 		string file_name;
@@ -517,7 +517,169 @@ int main(int argc, char* argv[]) {
 		ifstream myfile{ file_name };
 		while (getline(myfile, content)) {
 			stringstream ss(content);
-			
+			string command;
+			ss >> command;
+			if (command == "move") {
+				string w;
+				string dir;
+				ss >> w;
+				ss >> dir;
+				char which = w[0];
+				if (Player::p1_turn % 2 != 0) { // p1 turn
+					p1.move(which, dir);
+					Player::p1_turn++;
+					// cout the board after move
+				}
+				else { // p2 turn
+					p2.move(which, dir);
+					Player::p1_turn++;
+					// cout the board after move
+				}
+			}
+			else if (command == "abilities") {
+				if (Player::p1_turn % 2 != 0) { // p1 turn
+					for (int i = 0; i < 5; ++i) {
+						int n = i + 1;
+						cout << n << ": " << p1_abilities.at(i).get_name();
+						if (p1_abilities.at(i).is_used = 0) {
+							cout << " not used";
+						}
+						else {
+							cout << " used";
+						}
+						cout << endl;
+					}
+
+				}
+				else { // p2 turn
+					for (int i = 0; i < 5; ++i) {
+						int n = i + 1;
+						cout << n << ": " << p2_abilities.at(i).get_name();
+						if (p2_abilities.at(i).is_used = 0) {
+							cout << " not used";
+						}
+						else {
+							cout << " used";
+						}
+						cout << endl;
+					}
+				}
+			}
+			else if (command == "ability") {
+				int which;
+				ss >> which;
+				if (Player::p1_turn % 2 != 0) { // p1 turn
+					if (p1_abilities.at(which).get_name() == "Firewall") {
+						int y;
+						int x;
+						ss >> y;
+						ss >> x;
+						p1.apply(which, x, y);
+					}
+					else {
+						
+						char which_on_board;
+						ss >> which_on_board;
+						p1.apply(which_on_board, which);
+					}
+				}
+				else { // p2 turn
+					if (p2_abilities.at(which).get_name() == "Firewall") {
+						int y;
+						int x;
+						ss >> y;
+						ss >> x;
+						p2.apply(which, x, y);
+					}
+					else {
+						char which_on_board;
+						ss >> which_on_board;
+						p2.apply(which_on_board, which);
+					}
+				}
+			}
+			else if (command == "board") {
+				cout << "Player 1:" << endl;
+				cout << "Downloaded: " << p1.dlData << "D, " << p1.dlVirus << "V" << endl;
+				cout << "Abilities: " << p1.nAbility << endl;
+
+				if (Player::p1_turn % 2 != 0) { // p1 turn
+					for (int i = 0; i <= 3; ++i) { // cout the info for p1
+						cout << p1_links.at(i).name << ": " << p1_links.at(i).identity[0] << p1_links.at(i).strength << "   ";
+					}
+					cout << endl;
+					for (int i = 4; i < 8; i++) {
+						cout << p1_links.at(i).name << ": " << p1_links.at(i).identity[0] << p1_links.at(i).strength << "   ";
+					}
+					cout << endl;
+					cout << g;
+					cout << "Player 2:" << endl;
+					cout << "Downloaded: " << p2.dlData << "D, " << p2.dlVirus << "V" << endl;
+					cout << "Abilities: " << p2.nAbility << endl;
+
+					for (int j = 0; j <= 3; ++j) {
+						cout << p2_links.at(j).name << ": ";
+						if (p2_links.at(j).is_revealed == 1) {
+							cout << p2_links.at(j).identity[0] << p2_links.at(j).strength << "   ";
+						}
+						else {
+							cout << "?   ";
+						}
+					}
+					cout << endl;
+					for (int j = 4; j < 8; j++) {
+						cout << p2_links.at(j).name << ": ";
+						if (p2_links.at(j).is_revealed == 1) {
+							cout << p2_links.at(j).identity[0] << p2_links.at(j).strength << "   ";
+						}
+						else {
+							cout << "?   ";
+						}
+					}
+				}
+				else { // p2 turn
+					for (int j = 0; j <= 3; ++j) {
+						cout << p1_links.at(j).name << ": ";
+						if (p1_links.at(j).is_revealed == 1) {
+							cout << p1_links.at(j).identity[0] << p1_links.at(j).strength << "   ";
+						}
+						else {
+							cout << "?   ";
+						}
+					}
+					cout << endl;
+					for (int j = 4; j < 8; j++) {
+						cout << p1_links.at(j).name << ": ";
+						if (p1_links.at(j).is_revealed == 1) {
+							cout << p1_links.at(j).identity[0] << p1_links.at(j).strength << "   ";
+						}
+						else {
+							cout << "?   ";
+						}
+					}
+					cout << endl;
+
+					cout << g;
+
+					cout << "Player 2:" << endl;
+					cout << "Downloaded: " << p2.dlData << "D, " << p2.dlVirus << "V" << endl;
+					cout << "Abilities: " << p2.nAbility << endl;
+
+					for (int i = 0; i <= 3; ++i) { // cout the info for p1
+						cout << p2_links.at(i).name << ": " << p2_links.at(i).identity[0] << p2_links.at(i).strength << "   ";
+					}
+					cout << endl;
+					for (int i = 4; i < 8; i++) {
+						cout << p2_links.at(i).name << ": " << p2_links.at(i).identity[0] << p2_links.at(i).strength << "   ";
+					}
+
+
+				}
+			}
+			else if (command == "quit") {
+			break;
+			}
+
 
 		}
 
@@ -526,7 +688,7 @@ int main(int argc, char* argv[]) {
 
 		}
 		else if (s == "quit") {
-			return;
+			break;
 		}
 	}
 	
