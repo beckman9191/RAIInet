@@ -1,29 +1,26 @@
 ﻿  Link.cpp
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(10,17): error C3646: 'identity': unknown override specifier
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(10,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(19,62): error C2061: syntax error: identifier 'string'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.cpp(9,35): error C2511: 'Link::Link(std::string,int,int,int,char,bool,bool,bool)': overloaded member function not found in 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(19,61): error C2061: syntax error: identifier 'string'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.cpp(9,35): error C2511: 'Link::Link(std::string,int,int,int,char,int,bool,bool)': overloaded member function not found in 'Link'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(8): message : see declaration of 'Link'
-  Grid.cpp
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.cpp(11,73): error C2550: 'Link::{ctor}': constructor initializer lists are only allowed on constructor definitions
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.cpp(14,2): error C2065: 'identity': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.cpp(14,27): error C2039: 'identity': is not a member of 'Link'
+  Grid.cpp
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(8): message : see declaration of 'Link'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(10,17): error C3646: 'identity': unknown override specifier
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(10,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(19,62): error C2061: syntax error: identifier 'string'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(13,8): error C3646: 'g': unknown override specifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(13,8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(19,61): error C2061: syntax error: identifier 'string'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(13,7): error C2143: syntax error: missing ';' before '*'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(13,7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(13,19): error C2238: unexpected token(s) preceding ';'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(14,9): error C2143: syntax error: missing ';' before '*'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(14,9): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(14,12): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(14,22): error C2238: unexpected token(s) preceding ';'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(15,9): error C2143: syntax error: missing ';' before '*'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(15,9): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(15,12): error C2238: unexpected token(s) preceding ';'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(19,31): error C2061: syntax error: identifier 'Grid'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(21,54): error C2061: syntax error: identifier 'Grid'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(13,14): error C2065: 'ability': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(13,7): error C2923: 'std::vector': 'ability' is not a valid template type argument for parameter '_Ty'
-D:\Visual Studio IDE\VC\Tools\MSVC\14.23.28105\include\vector(352,37): error C3203: 'allocator': unspecialized class template can't be used as a template argument for template parameter '_Alloc', expected a real type
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(30,46): error C2065: 'ability': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(30,39): error C2923: 'std::vector': 'ability' is not a valid template type argument for parameter '_Ty'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(15,22): error C2238: unexpected token(s) preceding ';'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(12,14): error C2065: 'vector': undeclared identifier
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(12,25): error C2062: type 'char' unexpected
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(12,25): error C2059: syntax error: '>'
@@ -31,191 +28,294 @@ D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(12,38): error C2238: 
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(20,2): error C2065: 'theDisplay': undeclared identifier
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(21,2): error C2065: 'theDisplay': undeclared identifier
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(23,3): error C2065: 'theDisplay': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(26,5): error C2065: 'theDisplay': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(29,5): error C2065: 'theDisplay': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(32,5): error C2065: 'theDisplay': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(35,5): error C2065: 'theDisplay': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(38,5): error C2065: 'theDisplay': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(41,5): error C2065: 'theDisplay': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(44,5): error C2065: 'theDisplay': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(47,5): error C2065: 'theDisplay': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(50,5): error C2065: 'theDisplay': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(53,5): error C2065: 'theDisplay': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(56,5): error C2065: 'theDisplay': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(59,5): error C2065: 'theDisplay': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(62,5): error C2065: 'theDisplay': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(65,5): error C2065: 'theDisplay': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(68,5): error C2065: 'theDisplay': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(71,5): error C2065: 'theDisplay': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(74,5): error C2065: 'theDisplay': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(77,5): error C2065: 'theDisplay': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(80,5): error C2065: 'theDisplay': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(83,5): error C2065: 'theDisplay': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(86,5): error C2065: 'theDisplay': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(104,24): error C2039: 'theDisplay': is not a member of 'Grid'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(24,3): error C2065: 'theDisplay': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(27,5): error C2065: 'theDisplay': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(30,5): error C2065: 'theDisplay': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(33,5): error C2065: 'theDisplay': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(36,5): error C2065: 'theDisplay': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(39,5): error C2065: 'theDisplay': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(42,5): error C2065: 'theDisplay': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(45,5): error C2065: 'theDisplay': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(48,5): error C2065: 'theDisplay': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(51,5): error C2065: 'theDisplay': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(54,5): error C2065: 'theDisplay': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(57,5): error C2065: 'theDisplay': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(60,5): error C2065: 'theDisplay': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(63,5): error C2065: 'theDisplay': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(66,5): error C2065: 'theDisplay': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(69,5): error C2065: 'theDisplay': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(72,5): error C2065: 'theDisplay': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(75,5): error C2065: 'theDisplay': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(78,5): error C2065: 'theDisplay': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(81,5): error C2065: 'theDisplay': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(84,5): error C2065: 'theDisplay': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(87,5): error C2065: 'theDisplay': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.cpp(105,24): error C2039: 'theDisplay': is not a member of 'Grid'
   GameManager.cpp
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(10): message : see declaration of 'Grid'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(10,17): error C3646: 'identity': unknown override specifier
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(10,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(19,62): error C2061: syntax error: identifier 'string'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(13,14): error C2065: 'ability': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(13,7): error C2923: 'std::vector': 'ability' is not a valid template type argument for parameter '_Ty'
-D:\Visual Studio IDE\VC\Tools\MSVC\14.23.28105\include\vector(352,37): error C3203: 'allocator': unspecialized class template can't be used as a template argument for template parameter '_Alloc', expected a real type
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(20,16): error C3646: 'gm': unknown override specifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(20,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(28,33): error C2061: syntax error: identifier 'GameManager'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(29,39): error C2061: syntax error: identifier 'GameManager'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(30,46): error C2065: 'ability': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(30,39): error C2923: 'std::vector': 'ability' is not a valid template type argument for parameter '_Ty'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(19,61): error C2061: syntax error: identifier 'string'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(16,16): error C3646: 'gm': unknown override specifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(16,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(37,128): error C2061: syntax error: identifier 'GameManager'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(12,14): error C2065: 'vector': undeclared identifier
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(12,25): error C2062: type 'char' unexpected
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(12,25): error C2059: syntax error: '>'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(12,38): error C2238: unexpected token(s) preceding ';'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.cpp(23,15): error C2039: 'theDisplay': is not a member of 'Grid'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.cpp(22,16): error C2039: 'theDisplay': is not a member of 'Grid'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(10): message : see declaration of 'Grid'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.cpp(26,14): error C2039: 'theDisplay': is not a member of 'Grid'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.cpp(25,15): error C2039: 'theDisplay': is not a member of 'Grid'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(10): message : see declaration of 'Grid'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.cpp(27,14): error C2039: 'theDisplay': is not a member of 'Grid'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.cpp(30,17): error C2039: 'theDisplay': is not a member of 'Grid'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(10): message : see declaration of 'Grid'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.cpp(42,32): warning C4305: '=': truncation from 'int' to 'bool'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.cpp(45,14): error C2039: 'theDisplay': is not a member of 'Grid'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.cpp(41,17): error C2039: 'theDisplay': is not a member of 'Grid'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(10): message : see declaration of 'Grid'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.cpp(47,15): error C2039: 'theDisplay': is not a member of 'Grid'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(10): message : see declaration of 'Grid'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.cpp(65,15): error C2039: 'theDisplay': is not a member of 'Grid'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(10): message : see declaration of 'Grid'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.cpp(82,16): error C2039: 'theDisplay': is not a member of 'Grid'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(10): message : see declaration of 'Grid'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.cpp(86,16): error C2039: 'theDisplay': is not a member of 'Grid'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(10): message : see declaration of 'Grid'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.cpp(106,15): error C2039: 'theDisplay': is not a member of 'Grid'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(10): message : see declaration of 'Grid'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.cpp(111,17): error C2039: 'theDisplay': is not a member of 'Grid'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(10): message : see declaration of 'Grid'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.cpp(122,17): error C2039: 'theDisplay': is not a member of 'Grid'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(10): message : see declaration of 'Grid'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.cpp(132,7): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(7): message : see declaration of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.cpp(133,26): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(7): message : see declaration of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.cpp(136,26): error C2039: 'identity': is not a member of 'Link'
   Player.cpp
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(10): message : see declaration of 'Grid'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(7): message : see declaration of 'Link'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(10,17): error C3646: 'identity': unknown override specifier
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(10,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(19,62): error C2061: syntax error: identifier 'string'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(19,61): error C2061: syntax error: identifier 'string'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(12,14): error C2065: 'vector': undeclared identifier
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(12,25): error C2062: type 'char' unexpected
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(12,25): error C2059: syntax error: '>'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(12,38): error C2238: unexpected token(s) preceding ';'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(15,8): error C2143: syntax error: missing ';' before '*'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(15,8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(15,12): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(15,22): error C2238: unexpected token(s) preceding ';'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(16,8): error C2143: syntax error: missing ';' before '*'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(16,8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(16,12): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(16,22): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(19,37): error C2061: syntax error: identifier 'Player'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(14,9): error C2143: syntax error: missing ';' before '*'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(14,9): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(14,12): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(14,22): error C2238: unexpected token(s) preceding ';'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(15,9): error C2143: syntax error: missing ';' before '*'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(15,9): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(15,12): error C2238: unexpected token(s) preceding ';'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(13,14): error C2065: 'ability': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(13,7): error C2923: 'std::vector': 'ability' is not a valid template type argument for parameter '_Ty'
-D:\Visual Studio IDE\VC\Tools\MSVC\14.23.28105\include\vector(352,37): error C3203: 'allocator': unspecialized class template can't be used as a template argument for template parameter '_Alloc', expected a real type
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(30,46): error C2065: 'ability': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(30,39): error C2923: 'std::vector': 'ability' is not a valid template type argument for parameter '_Ty'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(8,43): error C2065: 'ability': undeclared identifier
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(8,36): error C2923: 'std::vector': 'ability' is not a valid template type argument for parameter '_Ty'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(13,19): error C2662: 'void std::vector<_Ty,_Alloc>::clear(void) noexcept': cannot convert 'this' pointer from 'std::vector' to 'std::vector<_Ty,_Alloc> &'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(13,19): message : Reason: cannot convert from 'std::vector' to 'std::vector<_Ty,_Alloc>'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(13,3): message : Conversion requires a second user-defined-conversion operator or constructor
-D:\Visual Studio IDE\VC\Tools\MSVC\14.23.28105\include\vector(1333,10): message : see declaration of 'std::vector<_Ty,_Alloc>::clear'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(38,12): warning C4018: '<': signed/unsigned mismatch
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(39,18): error C3867: 'std::vector<Link,std::allocator<_Ty>>::at': non-standard syntax; use '&' to create a pointer to member
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(39,18): error C3867:         with
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(39,18): error C3867:         [
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(39,18): error C3867:             _Ty=Link
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(39,18): error C3867:         ]
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(39,18): error C2109: subscript requires array or pointer type
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(53,21): warning C4018: '<': signed/unsigned mismatch
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(54,7): error C3867: 'std::vector<Link,std::allocator<_Ty>>::at': non-standard syntax; use '&' to create a pointer to member
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(54,7): error C3867:         with
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(54,7): error C3867:         [
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(54,7): error C3867:             _Ty=Link
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(54,7): error C3867:         ]
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(54,7): error C2109: subscript requires array or pointer type
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(55,8): error C3867: 'std::vector<Link,std::allocator<_Ty>>::at': non-standard syntax; use '&' to create a pointer to member
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(55,8): error C3867:         with
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(55,8): error C3867:         [
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(55,8): error C3867:             _Ty=Link
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(55,8): error C3867:         ]
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(55,8): error C2109: subscript requires array or pointer type
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(56,44): error C3867: 'std::vector<Link,std::allocator<_Ty>>::at': non-standard syntax; use '&' to create a pointer to member
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(56,44): error C3867:         with
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(56,44): error C3867:         [
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(56,44): error C3867:             _Ty=Link
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(56,44): error C3867:         ]
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(56,44): error C2109: subscript requires array or pointer type
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(57,44): error C3867: 'std::vector<Link,std::allocator<_Ty>>::at': non-standard syntax; use '&' to create a pointer to member
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(57,44): error C3867:         with
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(57,44): error C3867:         [
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(57,44): error C3867:             _Ty=Link
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(57,44): error C3867:         ]
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(57,44): error C2109: subscript requires array or pointer type
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(57,68): error C3867: 'std::vector<Link,std::allocator<_Ty>>::at': non-standard syntax; use '&' to create a pointer to member
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(57,68): error C3867:         with
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(57,68): error C3867:         [
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(57,68): error C3867:             _Ty=Link
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(57,68): error C3867:         ]
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(57,68): error C2109: subscript requires array or pointer type
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(62,21): warning C4018: '<': signed/unsigned mismatch
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(63,7): error C3867: 'std::vector<Link,std::allocator<_Ty>>::at': non-standard syntax; use '&' to create a pointer to member
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(63,7): error C3867:         with
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(63,7): error C3867:         [
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(63,7): error C3867:             _Ty=Link
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(63,7): error C3867:         ]
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(63,7): error C2109: subscript requires array or pointer type
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(64,15): error C3867: 'std::vector<Link,std::allocator<_Ty>>::at': non-standard syntax; use '&' to create a pointer to member
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(64,15): error C3867:         with
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(64,15): error C3867:         [
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(64,15): error C3867:             _Ty=Link
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(64,15): error C3867:         ]
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(64,15): error C2109: subscript requires array or pointer type
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(65,34): error C3867: 'std::vector<Link,std::allocator<_Ty>>::at': non-standard syntax; use '&' to create a pointer to member
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(65,34): error C3867:         with
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(65,34): error C3867:         [
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(65,34): error C3867:             _Ty=Link
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(65,34): error C3867:         ]
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(65,34): error C2109: subscript requires array or pointer type
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(65,35): error C2660: 'Player::notify_gm_move': function does not take 1 arguments
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(25,15): message : see declaration of 'Player::notify_gm_move'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(66,28): error C3867: 'std::vector<Link,std::allocator<_Ty>>::at': non-standard syntax; use '&' to create a pointer to member
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(66,28): error C3867:         with
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(66,28): error C3867:         [
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(66,28): error C3867:             _Ty=Link
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(66,28): error C3867:         ]
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(66,28): error C2109: subscript requires array or pointer type
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(66,44): error C3867: 'std::vector<Link,std::allocator<_Ty>>::at': non-standard syntax; use '&' to create a pointer to member
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(66,44): error C3867:         with
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(66,44): error C3867:         [
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(66,44): error C3867:             _Ty=Link
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(66,44): error C3867:         ]
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(66,44): error C2109: subscript requires array or pointer type
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(66,45): error C2660: 'Player::battle': function does not take 1 arguments
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(27,7): message : see declaration of 'Player::battle'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(70,26): error C3867: 'std::vector<Link,std::allocator<_Ty>>::at': non-standard syntax; use '&' to create a pointer to member
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(70,26): error C3867:         with
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(70,26): error C3867:         [
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(70,26): error C3867:             _Ty=Link
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(70,26): error C3867:         ]
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(70,26): error C2109: subscript requires array or pointer type
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(71,6): error C3867: 'std::vector<Link,std::allocator<_Ty>>::at': non-standard syntax; use '&' to create a pointer to member
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(71,6): error C3867:         with
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(71,6): error C3867:         [
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(71,6): error C3867:             _Ty=Link
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(71,6): error C3867:         ]
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(71,6): error C2109: subscript requires array or pointer type
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(80,12): error C3867: 'std::vector<Link,std::allocator<_Ty>>::at': non-standard syntax; use '&' to create a pointer to member
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(80,12): error C3867:         with
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(80,12): error C3867:         [
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(80,12): error C3867:             _Ty=Link
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(80,12): error C3867:         ]
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(80,12): error C2109: subscript requires array or pointer type
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(92,33): error C3867: 'std::vector<Link,std::allocator<_Ty>>::at': non-standard syntax; use '&' to create a pointer to member
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(92,33): error C3867:         with
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(92,33): error C3867:         [
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(92,33): error C3867:             _Ty=Link
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(92,33): error C3867:         ]
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(92,33): error C2109: subscript requires array or pointer type
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(92,34): error C2660: 'Player::notify_gm_move': function does not take 1 arguments
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(25,15): message : see declaration of 'Player::notify_gm_move'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(101,7): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(15,22): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(14,25): error C3646: 'get_name': unknown override specifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(14,26): error C2059: syntax error: ')'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(14,31): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(27,17): error C3646: 'get_name': unknown override specifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(27,17): error C2059: syntax error: '('
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(27,28): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(39,17): error C3646: 'get_name': unknown override specifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(39,17): error C2059: syntax error: '('
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(39,28): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(51,17): error C3646: 'get_name': unknown override specifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(51,17): error C2059: syntax error: '('
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(51,28): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(63,17): error C3646: 'get_name': unknown override specifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(63,17): error C2059: syntax error: '('
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(63,28): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(75,17): error C3646: 'get_name': unknown override specifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(75,17): error C2059: syntax error: '('
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(75,28): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(56,8): error C2039: 'get_name': is not a member of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(10): message : see declaration of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(59,13): error C2039: 'get_name': is not a member of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(10): message : see declaration of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(63,13): error C2039: 'get_name': is not a member of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(10): message : see declaration of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(66,13): error C2039: 'get_name': is not a member of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(10): message : see declaration of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(75,8): error C2039: 'get_name': is not a member of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(10): message : see declaration of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(79,13): error C2039: 'get_name': is not a member of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(10): message : see declaration of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(82,13): error C2039: 'get_name': is not a member of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(10): message : see declaration of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(85,13): error C2039: 'get_name': is not a member of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(10): message : see declaration of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(218,8): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(8): message : see declaration of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(231,6): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(8): message : see declaration of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(243,11): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(8): message : see declaration of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(262,7): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(8): message : see declaration of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(266,11): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(8): message : see declaration of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(272,7): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(8): message : see declaration of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(276,11): error C2039: 'identity': is not a member of 'Link'
+  Ability.cpp
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(8): message : see declaration of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(14,25): error C3646: 'get_name': unknown override specifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(14,26): error C2059: syntax error: ')'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(14,31): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(27,17): error C3646: 'get_name': unknown override specifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(27,17): error C2059: syntax error: '('
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(27,28): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(39,17): error C3646: 'get_name': unknown override specifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(39,17): error C2059: syntax error: '('
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(39,28): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(51,17): error C3646: 'get_name': unknown override specifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(51,17): error C2059: syntax error: '('
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(51,28): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(63,17): error C3646: 'get_name': unknown override specifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(63,17): error C2059: syntax error: '('
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(63,28): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(75,17): error C3646: 'get_name': unknown override specifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(75,17): error C2059: syntax error: '('
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(75,28): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(10,17): error C3646: 'identity': unknown override specifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(10,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(19,61): error C2061: syntax error: identifier 'string'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(16,16): error C2079: 'Player::gm' uses undefined class 'GameManager'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(12,14): error C2065: 'vector': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(12,25): error C2062: type 'char' unexpected
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(12,25): error C2059: syntax error: '>'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(12,38): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.cpp(15,19): error C2039: 'get_name': is not a member of 'LinkBoost'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(20): message : see declaration of 'LinkBoost'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.cpp(28,18): error C2039: 'get_name': is not a member of 'Firewall'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(32): message : see declaration of 'Firewall'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.cpp(28,29): error C2084: function 'std::string get_name(void)' already has a body
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.cpp(15): message : see previous definition of 'get_name'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.cpp(38,18): error C2039: 'get_name': is not a member of 'Download'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(44): message : see declaration of 'Download'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.cpp(54,18): error C2039: 'get_name': is not a member of 'Polarize'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(56): message : see declaration of 'Polarize'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.cpp(61,5): error C2039: 'identity': is not a member of 'Link'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(7): message : see declaration of 'Link'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(105,11): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.cpp(62,14): error C2039: 'identity': is not a member of 'Link'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(7): message : see declaration of 'Link'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(111,7): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.cpp(65,14): error C2039: 'identity': is not a member of 'Link'
 D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(7): message : see declaration of 'Link'
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.cpp(115,11): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.cpp(71,14): error C2039: 'get_name': is not a member of 'Scan'
+  main.cpp
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(68): message : see declaration of 'Scan'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(14,25): error C3646: 'get_name': unknown override specifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(14,26): error C2059: syntax error: ')'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(14,31): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(27,17): error C3646: 'get_name': unknown override specifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(27,17): error C2059: syntax error: '('
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(27,28): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(39,17): error C3646: 'get_name': unknown override specifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(39,17): error C2059: syntax error: '('
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(39,28): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(51,17): error C3646: 'get_name': unknown override specifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(51,17): error C2059: syntax error: '('
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(51,28): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(63,17): error C3646: 'get_name': unknown override specifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(63,17): error C2059: syntax error: '('
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(63,28): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(75,17): error C3646: 'get_name': unknown override specifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(75,17): error C2059: syntax error: '('
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Ability.h(75,28): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(10,17): error C3646: 'identity': unknown override specifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(10,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.h(19,61): error C2061: syntax error: identifier 'string'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(16,16): error C2079: 'Player::gm' uses undefined class 'GameManager'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(12,14): error C2065: 'vector': undeclared identifier
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(12,25): error C2062: type 'char' unexpected
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(12,25): error C2059: syntax error: '>'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Grid.h(12,38): error C2238: unexpected token(s) preceding ';'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(33,45): error C2440: 'initializing': cannot convert from 'initializer list' to 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(33,45): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(34,45): error C2440: 'initializing': cannot convert from 'initializer list' to 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(34,45): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(35,45): error C2440: 'initializing': cannot convert from 'initializer list' to 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(35,45): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(36,45): error C2440: 'initializing': cannot convert from 'initializer list' to 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(36,45): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(37,44): error C2440: 'initializing': cannot convert from 'initializer list' to 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(37,44): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(38,44): error C2440: 'initializing': cannot convert from 'initializer list' to 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(38,44): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(39,44): error C2440: 'initializing': cannot convert from 'initializer list' to 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(39,44): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(40,44): error C2440: 'initializing': cannot convert from 'initializer list' to 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(40,44): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(43,45): error C2440: 'initializing': cannot convert from 'initializer list' to 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(43,45): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(44,45): error C2440: 'initializing': cannot convert from 'initializer list' to 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(44,45): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(45,45): error C2440: 'initializing': cannot convert from 'initializer list' to 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(45,45): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(46,45): error C2440: 'initializing': cannot convert from 'initializer list' to 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(46,45): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(47,44): error C2440: 'initializing': cannot convert from 'initializer list' to 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(47,44): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(48,44): error C2440: 'initializing': cannot convert from 'initializer list' to 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(48,44): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(49,44): error C2440: 'initializing': cannot convert from 'initializer list' to 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(49,44): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(50,44): error C2440: 'initializing': cannot convert from 'initializer list' to 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(50,44): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(152,13): error C2561: 'main': function must return a value
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(29): message : see declaration of 'main'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(169,13): error C2561: 'main': function must return a value
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(29): message : see declaration of 'main'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(185,13): error C2561: 'main': function must return a value
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(29): message : see declaration of 'main'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(201,13): error C2561: 'main': function must return a value
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(29): message : see declaration of 'main'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(217,13): error C2561: 'main': function must return a value
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(29): message : see declaration of 'main'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(239,13): error C2561: 'main': function must return a value
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(29): message : see declaration of 'main'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(256,13): error C2561: 'main': function must return a value
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(29): message : see declaration of 'main'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(272,13): error C2561: 'main': function must return a value
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(29): message : see declaration of 'main'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(288,13): error C2561: 'main': function must return a value
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(29): message : see declaration of 'main'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(304,13): error C2561: 'main': function must return a value
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(29): message : see declaration of 'main'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(315,34): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(7): message : see declaration of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(319,34): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(7): message : see declaration of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(333,34): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(7): message : see declaration of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(337,34): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(7): message : see declaration of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(372,54): error C2039: 'get_name': is not a member of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(8): message : see declaration of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(386,54): error C2039: 'get_name': is not a member of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(8): message : see declaration of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(402,8): error C2039: 'get_name': is not a member of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(8): message : see declaration of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(416,8): error C2039: 'get_name': is not a member of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Player.h(8): message : see declaration of 'Ability'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(438,68): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(7): message : see declaration of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(442,68): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(7): message : see declaration of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(453,38): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(7): message : see declaration of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(463,38): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(7): message : see declaration of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(474,38): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(7): message : see declaration of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(484,38): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(7): message : see declaration of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(499,68): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(7): message : see declaration of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(503,68): error C2039: 'identity': is not a member of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(7): message : see declaration of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(529,10): error C2561: 'main': function must return a value
   Generating Code...
-D:\CS246 Assignment 5 Project\A5_Project\A5_Project\GameManager.h(7): message : see declaration of 'Link'
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\main.cpp(29): message : see declaration of 'main'

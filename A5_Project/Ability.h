@@ -8,56 +8,73 @@ class GameManager;
 class Link;
 
 class Ability {
-protected:
-	GameManager gm;
+
 public:
+	bool is_used = 0;
 	virtual string get_name() = 0;
-	Ability(GameManager gm);
-	virtual void notify(Link l, GameManager& gm) = 0;
+	Ability();
+	virtual void apply(Link& l) = 0;
+	
 };
 
 class LinkBoost : public Ability {
-	static int times;
+	
 	
 public:
+	bool is_used = 0;
+	static int p1_t;
+	static int p2_t;
 	string get_name() override;
-	void notify(Link l, GameManager& gm) override;
-	void apply(Link& l);
+	
+	void apply(Link& l) override;
 };
 
 class Firewall : public Ability {
-	static int times;
+	
 	
 public:
+	bool is_used = 0;
+	static int p1_t;
+	static int p2_t;
 	string get_name() override;
+	void apply(Link& l) override;
 
 };
 
 class Download : public Ability {
-	static int times;
+	
 	
 public:
+	bool is_used = 0;
+	static int p1_t;
+	static int p2_t;
 	string get_name() override;
-	void notify(Link l, GameManager& gm) override;
-	void apply(Link& l);
+	
+	void apply(Link& l)override;
 };
 
 class Polarize : public Ability {
-	static int times;
+	
 	
 public:
+	bool is_used = 0;
+	static int p1_t;
+	static int p2_t;
 	string get_name() override;
-	void notify(Link l, GameManager& gm) override;
-	void apply(Link& l);
+	
+	void apply(Link& l) override;
 };
 
 class Scan : public Ability {
-	static int times;
+	
 
 public:
+	bool is_used = 0;
+	static int p1_t;
+	static int p2_t;
 	string get_name() override;
-	void notify(Link l, GameManager& gm) override;
-	void apply(Link& l);
+	
+	void apply(Link& l) override;
 };
 
 

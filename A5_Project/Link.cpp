@@ -48,17 +48,21 @@ int Link::move(string dir, bool if_p1) { // handle link boost
 			}
 			else { // if it is a p2 link
 				if ((x == 3 && y == n + 1) || (x == 4 && y == n + 1)) { // goes to the opponent's server port
-					y -= n + 1;
+					x = 10;
+					y = 10;
+					is_revealed = 1;
 					is_alive = 0;
 					return 1;
 				}
 				else if (y <= n) { // goes off the opponent's edge
 					y -= n + 1;
+					is_revealed = 1;
 					is_alive = 0;
 					return 2;
 				}
-				else { // if it is at pos y > 1
+				else { // if it is at pos y > n
 					y -= n + 1;
+					
 					return 0;
 				}
 			}
@@ -80,12 +84,15 @@ int Link::move(string dir, bool if_p1) { // handle link boost
 			}
 			else { // if it is a p2 link
 				if ((x == 3 && y == 1) || (x == 4 && y == 1)) { // goes to the opponent's server port
-					y--;
+					x = 10;
+					y = 10;
+					is_revealed = 1;
 					is_alive = 0;
 					return 1;
 				}
 				else if (y == 0) { // at the edge
 					y--;
+					is_revealed = 1;
 					is_alive = 0;
 					return 2;
 				}
@@ -101,12 +108,15 @@ int Link::move(string dir, bool if_p1) { // handle link boost
 		if (is_boost) { // if the ability link boost is applied
 			if (if_p1) { // if it is a p1 link
 				if ((x == 3 && y == (7 - n - 1)) || (x == 4 && y == (7 - n - 1))) { // goes to opponent's server port
-					y += n + 1;
+					x = 10;
+					y = 10;
+					is_revealed = 1;
 					is_alive = 0;
 					return 1;
 				}
-				else if (y >= (7 - n)) { // if at the pos y >= 6
+				else if (y >= (7 - n)) { // if at the pos y >= 7 - n, goes off the edge
 					y += n + 1;
+					is_revealed = 1;
 					is_alive = 0;
 					return 2;
 				}
@@ -136,12 +146,15 @@ int Link::move(string dir, bool if_p1) { // handle link boost
 		else { // if the abolity link boost is not applied
 			if (if_p1) { // if it is a p1 link
 				if ((x == 3 && y == 6) || (x == 4 && y == 6)) { // goes to the opponent's server port
-					y++;
+					x = 10;
+					y = 10;
+					is_revealed = 1;
 					is_alive = 0;
 					return 1;
 				}
 				else if (y == 7) { // if at the pos y = 7
 					y++;
+					is_revealed = 1;
 					is_alive = 0;
 					return 2;
 				}
@@ -173,7 +186,7 @@ int Link::move(string dir, bool if_p1) { // handle link boost
 	else if (dir == "left") {
 		
 	if (is_boost) { // if link boost is applied
-		if (x <= n) { // if at the pos x <= 1
+		if (x <= n) { // if at the pos x <= n
 			cout << "Invalid move: Out of edge!" << endl;
 			return -1;
 		}
@@ -196,7 +209,7 @@ int Link::move(string dir, bool if_p1) { // handle link boost
 	}
 	else if (dir == "right") {
 	if (is_boost) { // if link boost is applied
-		if (x >= (7 - n)) { // if at the pos x >= 6
+		if (x >= (7 - n)) { // if at the pos x >= 7 - n
 			cout << "Invalid move: Out of edge!" << endl;
 			return -1;
 		}
@@ -224,6 +237,7 @@ bool Link::battle(Link& rhs) {
 	if (strength >= rhs.strength) {
 		rhs.x = 10;
 		rhs.y = 10;
+		is_revealed = 1;
 		rhs.is_alive = false;
 		return true;
 		// probably need to add something here
@@ -231,6 +245,7 @@ bool Link::battle(Link& rhs) {
 	else {
 		x = 10;
 		y = 10;
+		is_revealed = 1;
 		is_alive = false;
 		return false;
 		// probably need to add something here

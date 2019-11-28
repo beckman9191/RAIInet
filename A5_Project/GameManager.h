@@ -10,12 +10,14 @@ class Link;
 
 class GameManager {
 public:
-	Grid &g;
-	Player *p1;
-	Player *p2;
+	Grid *g = nullptr;
+	Player *p1 = nullptr;
+	Player *p2 = nullptr;
 	//std::vector<Link> vec_link; // deletable
 
 public:
+	
+
 	void notify_move(Link l); // notify the move from the link
 	
 	void notify_battle_res(Link winner, Link loser); // notify the battle result from two links

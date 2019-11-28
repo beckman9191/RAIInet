@@ -12,11 +12,11 @@ public:
 	std::vector<vector<char>> theDisplay;
 	std::vector<Link> vl;
 	const int gridsize;
-	Player* p1;
-	Player* p2;
+	Player* p1 = nullptr;
+	Player* p2 = nullptr;
 
 public:
-	Grid(int n);
+	Grid(int n, Player* p1, Player* p2);
 
 	~Grid();
 

@@ -3,9 +3,9 @@
 
 using namespace std;
 
-Grid::Grid(int n) : gridsize{ n } {
+Grid::Grid(int n, Player* p1, Player* p2) : gridsize{ n }, p1 { p1 }, p2{ p2 } {
 	/********* setup for vector of Links**********/
-	vl.clear();
+	vl.clear(); 
 	vl.reserve(16);
 	for (int i = 0; i < 8; ++i) {
 		vl.push_back(p1->links.at(i)); // push the links to our stack of links from player 1
@@ -18,9 +18,10 @@ Grid::Grid(int n) : gridsize{ n } {
 
 	/**********setup for textdisplay************/
 	theDisplay.clear();
-	theDisplay.resize(n); // resize for number of rows
+	theDisplay.resize(n + 2); // resize for number of rows
 	for (int i = 0; i < n; ++i) {
-		theDisplay.at(i).reserve(n); // reserve n spaces for columns
+		theDisplay.at(i).clear();
+		theDisplay.at(i).reserve(n + 2); // reserve n spaces for columns
 		for (int j = 0; j < n; ++j) {
 			if (i == 0 && j == 0) {
 				theDisplay.at(i).at(j) = vl.at(0).name;
