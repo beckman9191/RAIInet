@@ -1,21 +1,24 @@
 #ifndef GAME_MANAGER_H
 #define GAME_MANAGER_H
-#include "Grid.h"
-
 #include <vector>
 
 class Link;
 
+class Grid;
+
+class Player;
 
 
 class GameManager {
 public:
-	Grid *g = nullptr;
-	Player *p1 = nullptr;
-	Player *p2 = nullptr;
-	//std::vector<Link> vec_link; // deletable
+	Grid* g = nullptr;
+	Player* p1 = nullptr;
+	Player* p2 = nullptr;
+	
 
 public:
+
+	
 	
 
 	void notify_move(Link l); // notify the move from the link

@@ -7,7 +7,7 @@
 
 class Link {
 public:
-	string identity; // "Virus" or "Data"
+	std::string identity; // "Virus" or "Data"
 	int strength; // [1-4]
 	int x, y; // position in 8x8 grid
 	char name; // e.g. a, b, c, d, ...
@@ -16,7 +16,7 @@ public:
 	bool is_revealed; // if permanetly revealed
 	
 	/********* Method ************/
-	Link(string identity = "Data", int strength = 1, int x = 0, int y = 0, char name = 'a', 
+	Link(std::string identity = "Data", int strength = 1, int x = 0, int y = 0, char name = 'a', 
 		int is_boost = 0, bool is_alive = 1, bool is_revealed = 0);
 
 	int move(std::string dir, bool if_p1);

@@ -19,6 +19,7 @@ Link& Link::operator=(const Link& other) {
 	is_boost = other.is_boost;
 	is_alive = other.is_alive;
 	is_revealed = other.is_revealed;
+	return *this;
 }
 
 

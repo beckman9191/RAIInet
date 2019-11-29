@@ -9,7 +9,7 @@
 
 class Grid {
 public:
-	std::vector<vector<char>> theDisplay;
+	std::vector<std::vector<char>> theDisplay;
 	std::vector<Link> vl;
 	const int gridsize;
 	Player* p1 = nullptr;

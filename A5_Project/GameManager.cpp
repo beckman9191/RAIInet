@@ -1,15 +1,22 @@
 #include "GameManager.h"
+#include "Link.h"
+#include "Grid.h"
 
 using namespace std;
+
+
 
 void GameManager::notify_move(Link l) { 
 	int new_x = l.x;
 	int new_y = l.y;
-	int ori_x;
-	int ori_y;
+	int ori_x = 0;
+	int ori_y = 0;
 	int j = 0;
 	int k = 1;
-	for (int i = 0; i < 16; ++i) {
+	
+	
+	
+	for (int i = 0; i < 16; ++i) { // ???????????????????????????
 		if (g->vl.at(i).name == l.name) {
 			ori_x = g->vl.at(i).x;
 			ori_y = g->vl.at(i).y;
@@ -18,11 +25,13 @@ void GameManager::notify_move(Link l) {
 		}
 
 	}
+	
 	if (new_y > 7 || new_y < 0) {
 		g->theDisplay.at(ori_x).at(ori_y) = '.';
 	} 
 
 	g->theDisplay.at(ori_x).at(ori_y) = '.';
+	
 
 	int p1_wall_size = p1->wall_xy.size();
 	while (k < p1_wall_size) { // check if the previous cell has firewall or no
@@ -147,3 +156,5 @@ void GameManager::notify_scan(Link l) {
 		}
 	}
 }
+
+GameManager::~GameManager() {}

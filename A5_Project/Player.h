@@ -13,12 +13,12 @@ class Player {
 	Player* p; // the opponent's player pointer
 	
 	 
-	GameManager gm;
+	GameManager &gm;
 	friend class Grid;
 
 public:
 	std::vector<Link> links;
-	std::vector<Ability> abilities;
+	std::vector<Ability*> abilities;
 	std::vector<int> wall_xy; // the firewall coordinate opponent set on "me"
 	int dlVirus; // # of downloaded viruses
 	int dlData; // # of downloaded datas
@@ -29,12 +29,12 @@ public:
 	
 	void set_opponent(Player* p);
 	
-	void apply(int n, int x, int y);
-	void apply(int n, char name);
+	bool apply(int n, int x, int y);
+	bool apply(int n, char name);
 
-	void move(char name, std::string dir);
+	bool move(char name, std::string dir);
 	void battle(Link& l1, Link& l2);
-	Player(std::vector<Link> links, std::vector<Ability> abilities, std::vector<int> wall_xy, int v, int d, int a, GameManager gm);
+	Player(std::vector<Link> links, std::vector<Ability*> abilities, std::vector<int> wall_xy, int v, int d, int a, GameManager &gm);
 	~Player();
 };
 

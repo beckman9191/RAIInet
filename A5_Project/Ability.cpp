@@ -29,7 +29,7 @@ string Firewall::get_name() {
 	return "Firewall";
 }
 
-void apply(Link& l) {
+void Firewall::apply(Link& l) {
 }
 
 

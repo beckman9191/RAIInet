@@ -51,25 +51,25 @@ int main(int argc, char* argv[]) {
 
 	/********* setup vector of links for p1 *********/
 	vector<Link> p1_links;
-	p1_links.push_back(p1_V1);
-	p1_links.push_back(p1_V2);
-	p1_links.push_back(p1_V3);
-	p1_links.push_back(p1_V4);
-	p1_links.push_back(p1_D1);
-	p1_links.push_back(p1_D2);
-	p1_links.push_back(p1_D3);
-	p1_links.push_back(p1_D4);
+	p1_links.emplace_back(p1_V1);
+	p1_links.emplace_back(p1_V2);
+	p1_links.emplace_back(p1_V3);
+	p1_links.emplace_back(p1_V4);
+	p1_links.emplace_back(p1_D1);
+	p1_links.emplace_back(p1_D2);
+	p1_links.emplace_back(p1_D3);
+	p1_links.emplace_back(p1_D4);
 
 	/********* setup vector of links for p2 *********/
 	vector<Link> p2_links;
-	p2_links.push_back(p2_V1);
-	p2_links.push_back(p2_V2);
-	p2_links.push_back(p2_V3);
-	p2_links.push_back(p2_V4);
-	p2_links.push_back(p2_D1);
-	p2_links.push_back(p2_D2);
-	p2_links.push_back(p2_D3);
-	p2_links.push_back(p2_D4);
+	p2_links.emplace_back(p2_V1);
+	p2_links.emplace_back(p2_V2);
+	p2_links.emplace_back(p2_V3);
+	p2_links.emplace_back(p2_V4);
+	p2_links.emplace_back(p2_D1);
+	p2_links.emplace_back(p2_D2);
+	p2_links.emplace_back(p2_D3);
+	p2_links.emplace_back(p2_D4);
 
 	/********* setup Ability *********/
 	LinkBoost p1_l1;
@@ -84,21 +84,21 @@ int main(int argc, char* argv[]) {
 	Scan p2_s1;
 
 	/********* setup vector of Abilities for p1 *********/
-	vector<Ability> p1_abilities;
-	p1_abilities.push_back(p1_l1);
-	p1_abilities.push_back(p1_f1);
-	p1_abilities.push_back(p1_d1);
-	p1_abilities.push_back(p1_s1);
-	p1_abilities.push_back(p1_p1);
+	vector<Ability*> p1_abilities;
+	p1_abilities.emplace_back(&p1_l1);
+	p1_abilities.emplace_back(&p1_f1);
+	p1_abilities.emplace_back(&p1_d1);
+	p1_abilities.emplace_back(&p1_s1);
+	p1_abilities.emplace_back(&p1_p1);
 
 
 	/********* setup vector of Abilities for p2 *********/
-	vector<Ability> p2_abilities;
-	p1_abilities.push_back(p2_l1);
-	p1_abilities.push_back(p2_f1);
-	p1_abilities.push_back(p2_d1);
-	p1_abilities.push_back(p2_s1);
-	p1_abilities.push_back(p2_p1);
+	vector<Ability*> p2_abilities;
+	p1_abilities.emplace_back(&p2_l1);
+	p1_abilities.emplace_back(&p2_f1);
+	p1_abilities.emplace_back(&p2_d1);
+	p1_abilities.emplace_back(&p2_s1);
+	p1_abilities.emplace_back(&p2_p1);
 
 	/********* setup vector of wall_xy for p1 *********/
 	vector<int> wall_xy_p1;
@@ -139,82 +139,82 @@ int main(int argc, char* argv[]) {
 				if (order[i] == 'L') { 
 					if (LinkBoost::p1_t == 1) {
 						LinkBoost p1_l1;
-						p1_abilities.push_back(p1_l1);
+						p1_abilities.push_back(&p1_l1);
 						LinkBoost::p1_t++;
 					}
 					else if (LinkBoost::p1_t == 2) {
 						LinkBoost p1_l2;
-						p1_abilities.push_back(p1_l2);
+						p1_abilities.push_back(&p1_l2);
 						LinkBoost::p1_t++;
 					}
 					else {
 						cout << "You can only have two same abiility cards" << endl;
-						return;
+						return -1;
 					}
 
 				}
 				else if (order[i] == 'F') {
 					if (Firewall::p1_t == 1) {
 						Firewall p1_f1;
-						p1_abilities.push_back(p1_f1);
+						p1_abilities.push_back(&p1_f1);
 						Firewall::p1_t++;
 					}
 					else if (Firewall::p1_t == 2) {
 						Firewall p1_f2;
-						p1_abilities.push_back(p1_f2);
+						p1_abilities.push_back(&p1_f2);
 						Firewall::p1_t++;
 					}
 					else {
 						cout << "You can only have two same abiility cards" << endl;
-						return;
+						return -1;
 					}
 				}
 				else if (order[i] == 'D') {
 					if (Download::p1_t == 1) {
 						Download p1_d1;
-						p1_abilities.push_back(p1_d1);
+						p1_abilities.push_back(&p1_d1);
 						Download::p1_t++;
 					}
 					else if (Download::p1_t == 2) {
 						Download p1_d2;
-						p1_abilities.push_back(p1_d2);
+						p1_abilities.push_back(&p1_d2);
 						Download::p1_t++;
 					}
 					else {
 						cout << "You can only have two same abiility cards" << endl;
-						return;
+						return -1;
 					}
 				}
 				else if (order[i] == 'S') {
 					if (Scan::p1_t == 1) {
 						Scan p1_s1;
-						p1_abilities.push_back(p1_s1);
+						p1_abilities.push_back(&p1_s1);
 						Scan::p1_t++;
 					}
 					else if (Scan::p1_t == 2) {
 						Scan p1_s2;
-						p1_abilities.push_back(p1_s2);
+						p1_abilities.push_back(&p1_s2);
 						Scan::p1_t++;
 					}
 					else {
 						cout << "You can only have two same abiility cards" << endl;
-						return;
+						return -1;
 					}
 				}
 				else if (order[i] == 'P') {
 					if (Polarize::p1_t == 1) {
 						Polarize p1_p1;
-						p1_abilities.push_back(p1_p1);
+						p1_abilities.push_back(&p1_p1);
 						Polarize::p1_t++;
 					}
 					else if (Polarize::p1_t == 2) {
 						Polarize p1_p2;
-						p1_abilities.push_back(p1_p2);
+						p1_abilities.push_back(&p1_p2);
 						Polarize::p1_t++;
 					}
 					else {
 						cout << "You can only have two same abiility cards" << endl;
-						return;
+						return -1;
 					}
 				}
 			}
@@ -226,82 +226,82 @@ int main(int argc, char* argv[]) {
 				if (order[i] == 'L') {
 					if (LinkBoost::p2_t == 1) {
 						LinkBoost p2_l1;
-						p2_abilities.push_back(p2_l1);
+						p2_abilities.push_back(&p2_l1);
 						LinkBoost::p2_t++;
 					}
 					else if (LinkBoost::p2_t == 2) {
 						LinkBoost p2_l2;
-						p2_abilities.push_back(p2_l2);
+						p2_abilities.push_back(&p2_l2);
 						LinkBoost::p2_t++;
 					}
 					else {
 						cout << "You can only have two same abiility cards" << endl;
-						return;
+						return -1;
 					}
 
 				}
 				else if (order[i] == 'F') {
 					if (Firewall::p2_t == 1) {
 						Firewall p2_f1;
-						p2_abilities.push_back(p2_f1);
+						p2_abilities.push_back(&p2_f1);
 						Firewall::p2_t++;
 					}
 					else if (Firewall::p2_t == 2) {
 						Firewall p2_f2;
-						p2_abilities.push_back(p2_f2);
+						p2_abilities.push_back(&p2_f2);
 						Firewall::p2_t++;
 					}
 					else {
 						cout << "You can only have two same abiility cards" << endl;
-						return;
+						return -1;
 					}
 				}
 				else if (order[i] == 'D') {
 					if (Download::p2_t == 1) {
 						Download p2_d1;
-						p2_abilities.push_back(p2_d1);
+						p2_abilities.push_back(&p2_d1);
 						Download::p2_t++;
 					}
 					else if (Download::p2_t == 2) {
 						Download p2_d2;
-						p2_abilities.push_back(p2_d2);
+						p2_abilities.push_back(&p2_d2);
 						Download::p2_t++;
 					}
 					else {
 						cout << "You can only have two same abiility cards" << endl;
-						return;
+						return -1;
 					}
 				}
 				else if (order[i] == 'S') {
 					if (Scan::p2_t == 1) {
 						Scan p2_s1;
-						p2_abilities.push_back(p2_s1);
+						p2_abilities.push_back(&p2_s1);
 						Scan::p2_t++;
 					}
 					else if (Scan::p2_t == 2) {
 						Scan p2_s2;
-						p2_abilities.push_back(p2_s2);
+						p2_abilities.push_back(&p2_s2);
 						Scan::p2_t++;
 					}
 					else {
 						cout << "You can only have two same abiility cards" << endl;
-						return;
+						return -1;
 					}
 				}
 				else if (order[i] == 'P') {
 					if (Polarize::p2_t == 1) {
 						Polarize p2_p1;
-						p2_abilities.push_back(p2_p1);
+						p2_abilities.push_back(&p2_p1);
 						Polarize::p2_t++;
 					}
 					else if (Polarize::p2_t == 2) {
 						Polarize p2_p2;
-						p2_abilities.push_back(p2_p2);
+						p2_abilities.push_back(&p2_p2);
 						Polarize::p2_t++;
 					}
 					else {
 						cout << "You can only have two same abiility cards" << endl;
-						return;
+						return -1;
 					}
 				}
 			}
@@ -355,22 +355,58 @@ int main(int argc, char* argv[]) {
 			cin >> which;
 			cin >> dir;
 			if (Player::p1_turn % 2 != 0) { // p1 turn
-				p1.move(which, dir);
+				bool valid_move = 0;
+				while (!valid_move) {
+					
+					valid_move = p1.move(which, dir);
+					if(valid_move == 0) {
+						cin >> s;
+						cin >> which;
+						cin >> dir;
+					}
+
+				}
+				
 				Player::p1_turn++;
 				// cout the board after move
+				if (p1.win() || p2.lose()) {
+					cout << "Player 1 wins!" << endl;
+					return 0;
+				}
+				else if (p2.win() || p1.lose()) {
+					cout << "Player 2 wins!" << endl;
+					return 0;
+				}
 			}
 			else { // p2 turn
-				p2.move(which, dir);
+				bool valid_move = 0;
+				while (!valid_move) {
+					
+					valid_move = p2.move(which, dir);
+					if (valid_move == 0) {
+						cin >> s;
+						cin >> which;
+						cin >> dir;
+					}
+				}
 				Player::p1_turn++;
 				// cout the board after move
+				if (p1.win() || p2.lose()) {
+					cout << "Player 1 wins!" << endl;
+					return 0;
+				}
+				else if (p2.win() || p1.lose()) {
+					cout << "Player 2 wins!" << endl;
+					return 0;
+				}
 			}
 		}
 		else if (s == "abilities") { 
 			if (Player::p1_turn % 2 != 0) { // p1 turn
 				for (int i = 0; i < 5; ++i) {
 					int n = i + 1;
-					cout << n << ": " << p1_abilities.at(i).get_name();
-					if (p1_abilities.at(i).is_used = 0) {
+					cout << n << ": " << p1_abilities.at(i)->get_name();
+					if (p1_abilities.at(i)->is_used == 0) {
 						cout << " not used";
 					}
 					else {
@@ -383,8 +419,8 @@ int main(int argc, char* argv[]) {
 			else { // p2 turn
 				for (int i = 0; i < 5; ++i) {
 					int n = i + 1;
-					cout << n << ": " << p2_abilities.at(i).get_name();
-					if (p2_abilities.at(i).is_used = 0) {
+					cout << n << ": " << p2_abilities.at(i)->get_name();
+					if (p2_abilities.at(i)->is_used == 0) {
 						cout << " not used";
 					}
 					else {
@@ -399,7 +435,7 @@ int main(int argc, char* argv[]) {
 			int which;
 			cin >> which;
 			if (Player::p1_turn % 2 != 0) { // p1 turn
-				if (p1_abilities.at(which).get_name() == "Firewall") {
+				if (p1_abilities.at(which - 1)->get_name() == "Firewall") {
 					int y;
 					int x;
 					cin >> y;
@@ -409,11 +445,11 @@ int main(int argc, char* argv[]) {
 				else {
 					char which_on_board;
 					cin >> which_on_board;
-					p1.apply(which_on_board, which);
+					p1.apply(which, which_on_board);
 				}
 			}
 			else { // p2 turn
-				if (p2_abilities.at(which).get_name() == "Firewall") {
+				if (p2_abilities.at(which - 1)->get_name() == "Firewall") {
 					int y;
 					int x;
 					cin >> y;
@@ -423,7 +459,7 @@ int main(int argc, char* argv[]) {
 				else {
 					char which_on_board;
 					cin >> which_on_board;
-					p2.apply(which_on_board, which);
+					p2.apply(which, which_on_board);
 				}
 			}
 
@@ -505,6 +541,7 @@ int main(int argc, char* argv[]) {
 
 
 			}
+			cout << endl;
 
 		}
 		else if (s == "sequence") { // I hate this dude, seriously!!
@@ -526,22 +563,58 @@ int main(int argc, char* argv[]) {
 				ss >> dir;
 				char which = w[0];
 				if (Player::p1_turn % 2 != 0) { // p1 turn
-					p1.move(which, dir);
+					bool valid_move = 0;
+					while (!valid_move) {
+						
+						valid_move = p1.move(which, dir);
+						if (valid_move == 0) {
+							ss >> command;
+							ss >> w;
+							char which = w[0];
+							ss >> dir;
+						}
+					}
 					Player::p1_turn++;
 					// cout the board after move
+					if (p1.win() || p2.lose()) {
+						cout << "Player 1 wins!" << endl;
+						return 0;
+					}
+					else if (p2.win() || p1.lose()) {
+						cout << "Player 2 wins!" << endl;
+						return 0;
+					}
 				}
 				else { // p2 turn
-					p2.move(which, dir);
+					bool valid_move = 0;
+					while (!valid_move) {
+						
+						valid_move = p2.move(which, dir);
+						if (valid_move == 0) {
+							ss >> command;
+							ss >> w;
+							char which = w[0];
+							ss >> dir;
+						}
+					}
 					Player::p1_turn++;
 					// cout the board after move
+					if (p1.win() || p2.lose()) {
+						cout << "Player 1 wins!" << endl;
+						return 0;
+					}
+					else if (p2.win() || p1.lose()) {
+						cout << "Player 2 wins!" << endl;
+						return 0;
+					}
 				}
 			}
 			else if (command == "abilities") {
 				if (Player::p1_turn % 2 != 0) { // p1 turn
 					for (int i = 0; i < 5; ++i) {
 						int n = i + 1;
-						cout << n << ": " << p1_abilities.at(i).get_name();
-						if (p1_abilities.at(i).is_used = 0) {
+						cout << n << ": " << p1_abilities.at(i)->get_name();
+						if (p1_abilities.at(i)->is_used == 0) {
 							cout << " not used";
 						}
 						else {
@@ -554,8 +627,8 @@ int main(int argc, char* argv[]) {
 				else { // p2 turn
 					for (int i = 0; i < 5; ++i) {
 						int n = i + 1;
-						cout << n << ": " << p2_abilities.at(i).get_name();
-						if (p2_abilities.at(i).is_used = 0) {
+						cout << n << ": " << p2_abilities.at(i)->get_name();
+						if (p2_abilities.at(i)->is_used == 0) {
 							cout << " not used";
 						}
 						else {
@@ -569,7 +642,7 @@ int main(int argc, char* argv[]) {
 				int which;
 				ss >> which;
 				if (Player::p1_turn % 2 != 0) { // p1 turn
-					if (p1_abilities.at(which).get_name() == "Firewall") {
+					if (p1_abilities.at(which - 1)->get_name() == "Firewall") {
 						int y;
 						int x;
 						ss >> y;
@@ -584,7 +657,7 @@ int main(int argc, char* argv[]) {
 					}
 				}
 				else { // p2 turn
-					if (p2_abilities.at(which).get_name() == "Firewall") {
+					if (p2_abilities.at(which - 1)->get_name() == "Firewall") {
 						int y;
 						int x;
 						ss >> y;
@@ -675,9 +748,10 @@ int main(int argc, char* argv[]) {
 
 
 				}
+				cout << endl;
 			}
 			else if (command == "quit") {
-			break;
+			return 0;
 			}
 
 
@@ -688,7 +762,7 @@ int main(int argc, char* argv[]) {
 
 		}
 		else if (s == "quit") {
-			break;
+			return 0;
 		}
 	}
 	
