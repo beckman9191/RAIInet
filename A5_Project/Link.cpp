@@ -49,14 +49,15 @@ int Link::move(string dir, bool if_p1) { // handle link boost
 			}
 			else { // if it is a p2 link
 				if ((x == 3 && y == n + 1) || (x == 4 && y == n + 1)) { // goes to the opponent's server port
-					x = 10;
-					y = 10;
+					x = 9;
+					y = 9;
 					is_revealed = 1;
 					is_alive = 0;
 					return 1;
 				}
 				else if (y <= n) { // goes off the opponent's edge
-					y -= n + 1;
+					x = 9;
+					y = 9;
 					is_revealed = 1;
 					is_alive = 0;
 					return 2;
@@ -85,14 +86,15 @@ int Link::move(string dir, bool if_p1) { // handle link boost
 			}
 			else { // if it is a p2 link
 				if ((x == 3 && y == 1) || (x == 4 && y == 1)) { // goes to the opponent's server port
-					x = 10;
-					y = 10;
+					x = 9;
+					y = 9;
 					is_revealed = 1;
 					is_alive = 0;
 					return 1;
 				}
 				else if (y == 0) { // at the edge
-					y--;
+					x = 9;
+					y = 9;
 					is_revealed = 1;
 					is_alive = 0;
 					return 2;
@@ -109,14 +111,15 @@ int Link::move(string dir, bool if_p1) { // handle link boost
 		if (is_boost) { // if the ability link boost is applied
 			if (if_p1) { // if it is a p1 link
 				if ((x == 3 && y == (7 - n - 1)) || (x == 4 && y == (7 - n - 1))) { // goes to opponent's server port
-					x = 10;
-					y = 10;
+					x = 9;
+					y = 9;
 					is_revealed = 1;
 					is_alive = 0;
 					return 1;
 				}
 				else if (y >= (7 - n)) { // if at the pos y >= 7 - n, goes off the edge
-					y += n + 1;
+					x = 9;
+					y = 9;
 					is_revealed = 1;
 					is_alive = 0;
 					return 2;
@@ -147,14 +150,15 @@ int Link::move(string dir, bool if_p1) { // handle link boost
 		else { // if the abolity link boost is not applied
 			if (if_p1) { // if it is a p1 link
 				if ((x == 3 && y == 6) || (x == 4 && y == 6)) { // goes to the opponent's server port
-					x = 10;
-					y = 10;
+					x = 9;
+					y = 9;
 					is_revealed = 1;
 					is_alive = 0;
 					return 1;
 				}
 				else if (y == 7) { // if at the pos y = 7
-					y++;
+					x = 9;
+					y = 9;
 					is_revealed = 1;
 					is_alive = 0;
 					return 2;
@@ -187,23 +191,81 @@ int Link::move(string dir, bool if_p1) { // handle link boost
 	else if (dir == "left") {
 		
 	if (is_boost) { // if link boost is applied
-		if (x <= n) { // if at the pos x <= n
+		if (x <= n) { // if at the pos x >= 7 - n
 			cout << "Invalid move: Out of edge!" << endl;
 			return -1;
 		}
-		else {
-			x -= n + 1;
-			return 0;
+		if (if_p1) { // if it is p1 turn
+			if ((x == (3 + n + 1) && y == 0) || (x == (4 + n + 1) && y == 0)) { // goes to my server port
+				cout << "Invalid move: Wrong Destination!" << endl;
+				return -1;
+			}
+			else if ((x == (3 + n + 1) && y == 7) || (x == (4 + n + 1) && y == 7)) { // opponent's server port
+				x = 9;
+				y = 9;
+				is_revealed = 1;
+				is_alive = 0;
+				return 1;
+			}
+			else {
+				x -= n + 1;
+			}
+
+		}
+		else { // if it is p2 turn
+			if ((x == (3 + n + 1) && y == 7) || (x == (4 + n + 1) && y == 7)) { // goes to my server port
+				cout << "Invalid move: Wrong Destination!" << endl;
+				return -1;
+			}
+			else if ((x == (3 + n + 1) && y == 0) || (x == (4 + n + 1) && y == 0)) { // opponent's server port
+				x = 9;
+				y = 9;
+				is_revealed = 1;
+				is_alive = 0;
+				return 1;
+			}
+			else {
+				x -= n + 1;
+			}
 		}
 	}
 	else { // if link boost is not applied
-		if (x == 0) {
+		if (x <= 0) { // if at the pos x >= 7 - n
 			cout << "Invalid move: Out of edge!" << endl;
 			return -1;
 		}
-		else {
-			x--;
-			return 0;
+		if (if_p1) { // if it is p1 turn
+			if ((x == 4 && y == 0) || (x == 5 && y == 0)) { // goes to my server port
+				cout << "Invalid move: Wrong Destination!" << endl;
+				return -1;
+			}
+			else if ((x == 4 && y == 7) || (x == 5 && y == 7)) { // opponent's server port
+				x = 9;
+				y = 9;
+				is_revealed = 1;
+				is_alive = 0;
+				return 1;
+			}
+			else {
+				x--;
+			}
+
+		}
+		else { // if it is p2 turn
+			if ((x == 4 && y == 7) || (x == 5 && y == 7)) { // goes to my server port
+				cout << "Invalid move: Wrong Destination!" << endl;
+				return -1;
+			}
+			else if ((x == 4 && y == 0) || (x == 5 && y == 0)) { // opponent's server port
+				x = 9;
+				y = 9;
+				is_revealed = 1;
+				is_alive = 0;
+				return 1;
+			}
+			else {
+				x--;
+			}
 		}
 
 	}
@@ -214,19 +276,77 @@ int Link::move(string dir, bool if_p1) { // handle link boost
 			cout << "Invalid move: Out of edge!" << endl;
 			return -1;
 		}
-		else {
-			x += n + 1;
-			return 0;
+		if (if_p1) { // if it is p1 turn
+			if ((x == (3 - n - 1) && y == 0) || (x == (4 - n - 1) && y == 0)) { // goes to my server port
+				cout << "Invalid move: Wrong Destination!" << endl;
+				return -1;
+			}
+			else if ((x == (3 - n - 1) && y == 7) || (x == (4 - n - 1) && y == 7)) { // opponent's server port
+				x = 9;
+				y = 9;
+				is_revealed = 1;
+				is_alive = 0;
+				return 1;
+			}
+			else {
+				x += n + 1;
+			}
+
+		}
+		else { // if it is p2 turn
+			if ((x == (3 - n - 1) && y == 7) || (x == (4 - n - 1) && y == 7)) { // goes to my server port
+				cout << "Invalid move: Wrong Destination!" << endl;
+				return -1;
+			}
+			else if ((x == (3 - n - 1) && y == 0) || (x == (4 - n - 1) && y == 0)) { // opponent's server port
+				x = 9;
+				y = 9;
+				is_revealed = 1;
+				is_alive = 0;
+				return 1;
+			}
+			else {
+				x += n + 1;
+			}
 		}
 	}
 	else { // if link boost is not applied
-		if (x == 7) {
+		if (x >= 7) { // if at the pos x >= 7 - n
 			cout << "Invalid move: Out of edge!" << endl;
 			return -1;
 		}
-		else {
-			x++;
-			return 0;
+		if (if_p1) { // if it is p1 turn
+			if ((x == 2 && y == 0) || (x == 3 && y == 0)) { // goes to my server port
+				cout << "Invalid move: Wrong Destination!" << endl;
+				return -1;
+			}
+			else if ((x == 2 && y == 7) || (x == 3 && y == 7)) { // opponent's server port
+				x = 9;
+				y = 9;
+				is_revealed = 1;
+				is_alive = 0;
+				return 1;
+			}
+			else {
+				x++;
+			}
+
+		}
+		else { // if it is p2 turn
+			if ((x == 2 && y == 7) || (x == 3 && y == 7)) { // goes to my server port
+				cout << "Invalid move: Wrong Destination!" << endl;
+				return -1;
+			}
+			else if ((x == 2 && y == 0) || (x == 3 && y == 0)) { // opponent's server port
+				x = 9;
+				y = 9;
+				is_revealed = 1;
+				is_alive = 0;
+				return 1;
+			}
+			else {
+				x++;
+			}
 		}
 
 	}
@@ -240,6 +360,7 @@ bool Link::battle(Link& rhs) {
 		rhs.y = 10;
 		is_revealed = 1;
 		rhs.is_alive = false;
+		rhs.is_revealed = 1;
 		return true;
 		// probably need to add something here
 	}
@@ -248,6 +369,7 @@ bool Link::battle(Link& rhs) {
 		y = 10;
 		is_revealed = 1;
 		is_alive = false;
+		rhs.is_revealed = 1;
 		return false;
 		// probably need to add something here
 	}

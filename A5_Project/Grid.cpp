@@ -18,10 +18,11 @@ Grid::Grid(int n, Player* p1, Player* p2) : gridsize{ n }, p1 { p1 }, p2{ p2 } {
 
 	/**********setup for textdisplay************/
 	theDisplay.clear();
-	theDisplay.resize(n + 2); // resize for number of rows
+	theDisplay.resize(n + 3); // resize for number of rows
+	
 	for (int i = 0; i < n; ++i) {
 		
-		theDisplay.at(i).reserve(n + 2); // reserve n spaces for columns
+		theDisplay.at(i).reserve(n + 3); // reserve n spaces for columns
 		for (int j = 0; j < n; ++j) {
 			if (i == 0 && j == 0) {
 				theDisplay.at(i).emplace_back(vl.at(0).name);
@@ -87,7 +88,12 @@ Grid::Grid(int n, Player* p1, Player* p2) : gridsize{ n }, p1 { p1 }, p2{ p2 } {
 				theDisplay.at(i).emplace_back('.');
 			}
 		}
+		
 	}
+	theDisplay.at(n).resize(n + 3);
+	theDisplay.at(n + 1).resize(n + 3);
+	theDisplay.at(n + 2).resize(n + 3);
+	
 }
 
 Grid::~Grid() {

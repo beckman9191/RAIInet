@@ -16,12 +16,14 @@ void GameManager::notify_move(Link l) {
 	
 	
 	
-	for (int i = 0; i < 16; ++i) { // ???????????????????????????
+	for (int i = 0; i < 16; ++i) { 
 		if (g->vl.at(i).name == l.name) {
 			ori_x = g->vl.at(i).x;
 			ori_y = g->vl.at(i).y;
-			g->vl.at(i).x = new_x;
-			g->vl.at(i).y = new_y;
+			
+				g->vl.at(i).x = new_x;
+				g->vl.at(i).y = new_y;
+			
 		}
 
 	}
@@ -35,7 +37,7 @@ void GameManager::notify_move(Link l) {
 
 	int p1_wall_size = p1->wall_xy.size();
 	while (k < p1_wall_size) { // check if the previous cell has firewall or no
-		if ((j == ori_x) && (k == ori_y)) {
+		if ((p1->wall_xy[j] == ori_x) && (p1->wall_xy[k] == ori_y)) {
 			g->theDisplay.at(ori_x).at(ori_y) = 'w';
 		}
 		j += 2;
@@ -46,14 +48,15 @@ void GameManager::notify_move(Link l) {
 
 	int p2_wall_size = p2->wall_xy.size();
 	while (k < p2_wall_size) { // check if the previous cell has firewall or no
-		if ((j == ori_x) && (k == ori_y)) {
+		if ((p2->wall_xy[j] == ori_x) && (p2->wall_xy[k] == ori_y)) {
 			g->theDisplay.at(ori_x).at(ori_y) = 'm';
 		}
 		j += 2;
 		k += 2;
 	}
-
-	g->theDisplay.at(new_x).at(new_y) = l.name;
+	
+		g->theDisplay.at(new_x).at(new_y) = l.name;
+	
 	
 }
 
@@ -116,7 +119,7 @@ void GameManager::notify_download(Link l) {
 
 	int p1_wall_size = p1->wall_xy.size();
 	while (k < p1_wall_size) { // check if the current cell has firewall or no
-		if ((j == x) && (k == y)) {
+		if ((p1->wall_xy[j] == x) && (p1->wall_xy[k] == y)) {
 			g->theDisplay.at(x).at(y) = 'w';
 		}
 		j += 2;
@@ -127,7 +130,7 @@ void GameManager::notify_download(Link l) {
 
 	int p2_wall_size = p2->wall_xy.size();
 	while (k < p2_wall_size) { // check if the current cell has firewall or no
-		if ((j == x) && (k == y)) {
+		if ((p2->wall_xy[j] == x) && (p2->wall_xy[k] == y)) {
 			g->theDisplay.at(x).at(y) = 'm';
 		}
 		j += 2;
@@ -147,12 +150,42 @@ void GameManager::notify_polarize(Link l) {
 		}
 
 	}
+	for (int i = 0; i < 8; ++i) {
+		if (p1->links.at(i).name == l.name) {
+			if (p1->links.at(i).identity == "Virus") {
+				p1->links.at(i).identity == "Data";
+			}
+			else {
+				p1->links.at(i).identity == "Virus";
+			}
+		}
+	}
+	for (int i = 0; i < 8; ++i) {
+		if (p2->links.at(i).name == l.name) {
+			if (p2->links.at(i).identity == "Virus") {
+				p2->links.at(i).identity == "Data";
+			}
+			else {
+				p2->links.at(i).identity == "Virus";
+			}
+		}
+	}
 }
 
 void GameManager::notify_scan(Link l) {
 	for (int i = 0; i < 16; ++i) {
 		if (g->vl.at(i).name == l.name) {
 			g->vl.at(i).is_revealed = true;
+		}
+	}
+	for (int i = 0; i < 8; ++i) {
+		if (p1->links.at(i).name == l.name) {
+			p1->links.at(i).is_revealed = true;
+		}
+	}
+	for (int i = 0; i < 8; ++i) {
+		if (p2->links.at(i).name == l.name) {
+			p2->links.at(i).is_revealed = true;
 		}
 	}
 }

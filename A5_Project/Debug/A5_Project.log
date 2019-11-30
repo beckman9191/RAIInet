@@ -1,4 +1,3 @@
-﻿  Player.cpp
-  main.cpp
-  Generating Code...
+﻿  Link.cpp
+D:\CS246 Assignment 5 Project\A5_Project\A5_Project\Link.cpp(355): warning C4715: 'Link::move': not all control paths return a value
   A5_Project.vcxproj -> D:\CS246 Assignment 5 Project\A5_Project\Debug\A5_Project.exe
