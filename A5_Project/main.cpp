@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <X11/Xlib.h>
 #include "Ability.h"
 #include "GameManager.h"
 #include "Grid.h"
@@ -134,13 +135,50 @@ int main(int argc, char* argv[]) {
 	gm.p1 = &p1;
 	gm.p2 = &p2;
 
+	/************* setup graphics *************/
+	bool graphics_enabled = false;
+	XColor black, red, green, blue, yellow, cyan, magenta, white;
+	Colormap cm;
+	char black_b[] = "#000000";
+	char red_b[] = "#FF0000";
+	char green_b[] = "#00FF00";
+	char blue_b[] = "#0000FF";
+	char yellow_b[] = "#FFFF00";
+	char cyan_b[] = "#00FFFF";
+	char magenta_b[] = "#FF00FF";
+	char white_b[] = "#FFFFFF";
+	Display* disp = XOpenDisplay(0);
+	cm = DefaultColormap(disp, 0);
+	XParseColor(disp, cm, black_b, &black); XAllocColor(disp, cm, &black);
+	XParseColor(disp, cm, red_b, &red); XAllocColor(disp, cm, &red);
+	XParseColor(disp, cm, green_b, &green); XAllocColor(disp, cm, &green);
+	XParseColor(disp, cm, blue_b, &blue); XAllocColor(disp, cm, &blue);
+	XParseColor(disp, cm, yellow_b, &yellow); XAllocColor(disp, cm, &yellow);
+	XParseColor(disp, cm, cyan_b, &cyan); XAllocColor(disp, cm, &cyan);
+	XParseColor(disp, cm, magenta_b, &magenta); XAllocColor(disp, cm, &magenta);
+	XParseColor(disp, cm, white_b, &white); XAllocColor(disp, cm, &white);
+	Window w;
+	GC gc;
+	XFontStruct* font;
+
 	/************* Command Interface *************/
 
 	for (int i = 1; i <= num_argc; ++i) {
 		string which = argv[i];
 		string order;
 		if (which == "-graphics") {
-			// need to be complete later
+			graphics_enabled = true;
+			w = XCreateSimpleWindow(disp, DefaultRootWindow(disp), 0, 0, 172, 425, 0, blue.pixel, blue.pixel);
+			XSelectInput(disp, w, StructureNotifyMask);
+			XMapWindow(disp, w);
+			gc = XCreateGC(disp, w, 0, 0);
+			while (true)
+			{
+				XEvent e;
+				XNextEvent(disp, &e);
+				if (e.type == MapNotify)
+					break;
+			}
 		}
 		else if (which == "-ability1") { // if p1 set the ability order
 			p1.abilities.clear();
@@ -148,12 +186,12 @@ int main(int argc, char* argv[]) {
 			for (int i = 0; i < 5; ++i) {
 				if (order[i] == 'L') {
 					if (LinkBoost::p1_t == 1) {
-						
+
 						p1.abilities.push_back(&p1_l1);
 						LinkBoost::p1_t++;
 					}
 					else if (LinkBoost::p1_t == 2) {
-						
+
 						p1.abilities.push_back(&p1_l2);
 						LinkBoost::p1_t++;
 					}
@@ -165,12 +203,12 @@ int main(int argc, char* argv[]) {
 				}
 				else if (order[i] == 'F') {
 					if (Firewall::p1_t == 1) {
-						
+
 						p1.abilities.push_back(&p1_f1);
 						Firewall::p1_t++;
 					}
 					else if (Firewall::p1_t == 2) {
-						
+
 						p1.abilities.push_back(&p1_f2);
 						Firewall::p1_t++;
 					}
@@ -181,12 +219,12 @@ int main(int argc, char* argv[]) {
 				}
 				else if (order[i] == 'D') {
 					if (Download::p1_t == 1) {
-						
+
 						p1.abilities.push_back(&p1_d1);
 						Download::p1_t++;
 					}
 					else if (Download::p1_t == 2) {
-						
+
 						p1.abilities.push_back(&p1_d2);
 						Download::p1_t++;
 					}
@@ -197,12 +235,12 @@ int main(int argc, char* argv[]) {
 				}
 				else if (order[i] == 'S') {
 					if (Scan::p1_t == 1) {
-						
+
 						p1.abilities.push_back(&p1_s1);
 						Scan::p1_t++;
 					}
 					else if (Scan::p1_t == 2) {
-						
+
 						p1.abilities.push_back(&p1_s2);
 						Scan::p1_t++;
 					}
@@ -213,12 +251,12 @@ int main(int argc, char* argv[]) {
 				}
 				else if (order[i] == 'P') {
 					if (Polarize::p1_t == 1) {
-						
+
 						p1.abilities.push_back(&p1_p1);
 						Polarize::p1_t++;
 					}
 					else if (Polarize::p1_t == 2) {
-						
+
 						p1.abilities.push_back(&p1_p2);
 						Polarize::p1_t++;
 					}
@@ -235,12 +273,12 @@ int main(int argc, char* argv[]) {
 			for (int i = 0; i < 5; ++i) {
 				if (order[i] == 'L') {
 					if (LinkBoost::p2_t == 1) {
-						
+
 						p2.abilities.push_back(&p2_l1);
 						LinkBoost::p2_t++;
 					}
 					else if (LinkBoost::p2_t == 2) {
-						
+
 						p2.abilities.push_back(&p2_l2);
 						LinkBoost::p2_t++;
 					}
@@ -252,12 +290,12 @@ int main(int argc, char* argv[]) {
 				}
 				else if (order[i] == 'F') {
 					if (Firewall::p2_t == 1) {
-						
+
 						p2.abilities.push_back(&p2_f1);
 						Firewall::p2_t++;
 					}
 					else if (Firewall::p2_t == 2) {
-						
+
 						p2.abilities.push_back(&p2_f2);
 						Firewall::p2_t++;
 					}
@@ -268,12 +306,12 @@ int main(int argc, char* argv[]) {
 				}
 				else if (order[i] == 'D') {
 					if (Download::p2_t == 1) {
-						
+
 						p2.abilities.push_back(&p2_d1);
 						Download::p2_t++;
 					}
 					else if (Download::p2_t == 2) {
-						
+
 						p2.abilities.push_back(&p2_d2);
 						Download::p2_t++;
 					}
@@ -284,12 +322,12 @@ int main(int argc, char* argv[]) {
 				}
 				else if (order[i] == 'S') {
 					if (Scan::p2_t == 1) {
-						
+
 						p2.abilities.push_back(&p2_s1);
 						Scan::p2_t++;
 					}
 					else if (Scan::p2_t == 2) {
-						
+
 						p2.abilities.push_back(&p2_s2);
 						Scan::p2_t++;
 					}
@@ -300,12 +338,12 @@ int main(int argc, char* argv[]) {
 				}
 				else if (order[i] == 'P') {
 					if (Polarize::p2_t == 1) {
-						
+
 						p2.abilities.push_back(&p2_p1);
 						Polarize::p2_t++;
 					}
 					else if (Polarize::p2_t == 2) {
-						
+
 						p2.abilities.push_back(&p2_p2);
 						Polarize::p2_t++;
 					}
@@ -361,19 +399,400 @@ int main(int argc, char* argv[]) {
 	char which;
 	string dir;
 	cout << g;
+	if (graphics_enabled)
+	{
+		XSetForeground(disp, gc, blue.pixel);
+		XFillRectangle(disp, w, gc, 0, 0, 172, 425);
+		XSetForeground(disp, gc, white.pixel);
+		XDrawString(disp, w, gc, 20, 25, "Player 1:", 9);
+		XDrawString(disp, w, gc, 20, 45, "Downloaded:", 11);
+		XSetForeground(disp, gc, green.pixel);
+		XDrawString(disp, w, gc, 93, 45, to_string(p1.dlData).c_str(), 1);
+		XSetForeground(disp, gc, white.pixel);
+		XDrawString(disp, w, gc, 100, 45, ",", 1);
+		XSetForeground(disp, gc, red.pixel);
+		XDrawString(disp, w, gc, 110, 45, to_string(p1.dlVirus).c_str(), 1);
+		XSetForeground(disp, gc, white.pixel);
+		XDrawString(disp, w, gc, 20, 65, "Abilities:", 10);
+		XSetForeground(disp, gc, magenta.pixel);
+		XDrawString(disp, w, gc, 88, 65, to_string(p1.nAbility).c_str(), 1);
+		if (Player::p1_turn % 2 != 0)
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				if (p1.links.at(i).identity[0] == 'D')
+					XSetForeground(disp, gc, green.pixel);
+				else if (p1.links.at(i).identity[0] == 'V')
+					XSetForeground(disp, gc, red.pixel);
+				string tmp(1, p1.links.at(i).name);
+				XDrawString(disp, w, gc, 20 + i * 36, 85, (tmp + ": " + to_string(p1.links.at(i).strength) + "   ").c_str(), 7);
+			}
+			for (int i = 4; i < 8; i++)
+			{
+				if (p1.links.at(i).identity[0] == 'D')
+					XSetForeground(disp, gc, green.pixel);
+				else if (p1.links.at(i).identity[0] == 'V')
+					XSetForeground(disp, gc, red.pixel);
+				string tmp(1, p1.links.at(i).name);
+				XDrawString(disp, w, gc, 20 + (i - 4) * 36, 105, (tmp + ": " + to_string(p1.links.at(i).strength) + "   ").c_str(), 7);
+			}
+		}
+		else
+		{
+			for (int i = 0; i < 4; i++)
+				if (p1.links.at(i).is_revealed)
+				{
+					if (p1.links.at(i).identity[0] == 'D')
+						XSetForeground(disp, gc, green.pixel);
+					else if (p1.links.at(i).identity[0] == 'V')
+						XSetForeground(disp, gc, red.pixel);
+					string tmp(1, p1.links.at(i).name);
+					XDrawString(disp, w, gc, 20 + i * 36, 85, (tmp + ": " + to_string(p1.links.at(i).strength) + "   ").c_str(), 7);
+				}
+				else
+				{
+					XSetForeground(disp, gc, yellow.pixel);
+					string tmp(1, p1.links.at(i).name);
+					XDrawString(disp, w, gc, 20 + i * 36, 85, (tmp + ": ?   ").c_str(), 7);
+				}
+			for (int i = 4; i < 8; i++)
+				if (p1.links.at(i).is_revealed)
+				{
+					if (p1.links.at(i).identity[0] == 'D')
+						XSetForeground(disp, gc, green.pixel);
+					else if (p1.links.at(i).identity[0] == 'V')
+						XSetForeground(disp, gc, red.pixel);
+					string tmp(1, p1.links.at(i).name);
+					XDrawString(disp, w, gc, 20 + (i - 4) * 36, 105, (tmp + ": " + to_string(p1.links.at(i).strength) + "   ").c_str(), 7);
+				}
+				else
+				{
+					XSetForeground(disp, gc, yellow.pixel);
+					string tmp(1, p1.links.at(i).name);
+					XDrawString(disp, w, gc, 20 + (i - 4) * 36, 105, (tmp + ": ?   ").c_str(), 7);
+				}
+		}
+		XSetForeground(disp, gc, black.pixel);
+		XDrawString(disp, w, gc, 20, 125, "======================", 22);
+		for (int i = 0; i < g.gridsize; i++)
+			for (int j = 0; j < g.gridsize; j++)
+			{
+				if (g.theDisplay.at(j).at(i) == '.')
+					XSetForeground(disp, gc, white.pixel);
+				else if (g.theDisplay.at(j).at(i) == 'S')
+					XSetForeground(disp, gc, black.pixel);
+				else if (g.theDisplay.at(j).at(i) == 'm' || g.theDisplay.at(j).at(i) == 'w')
+					XSetForeground(disp, gc, magenta.pixel);
+				else if (97 <= g.theDisplay.at(j).at(i) && g.theDisplay.at(j).at(i) <= 104)
+					if (Player::p1_turn % 2 != 0)
+						if (p1.links.at((int)g.theDisplay.at(j).at(i) - 97).identity[0] == 'D')
+							XSetForeground(disp, gc, green.pixel);
+						else
+							XSetForeground(disp, gc, red.pixel);
+					else
+						if (p1.links.at((int)g.theDisplay.at(j).at(i) - 97).is_revealed)
+							if (p1.links.at((int)g.theDisplay.at(j).at(i) - 97).identity[0] == 'D')
+								XSetForeground(disp, gc, green.pixel);
+							else
+								XSetForeground(disp, gc, red.pixel);
+						else
+							XSetForeground(disp, gc, yellow.pixel);
+				else if (65 <= g.theDisplay.at(j).at(i) && g.theDisplay.at(j).at(i) <= 72)
+					if (Player::p1_turn % 2 == 0)
+						if (p2.links.at((int)g.theDisplay.at(j).at(i) - 65).identity[0] == 'D')
+							XSetForeground(disp, gc, green.pixel);
+						else
+							XSetForeground(disp, gc, red.pixel);
+					else
+						if (p2.links.at((int)g.theDisplay.at(j).at(i) - 65).is_revealed)
+							if (p2.links.at((int)g.theDisplay.at(j).at(i) - 65).identity[0] == 'D')
+								XSetForeground(disp, gc, green.pixel);
+							else
+								XSetForeground(disp, gc, red.pixel);
+						else
+							XSetForeground(disp, gc, yellow.pixel);
+				string tmp(1, g.theDisplay.at(j).at(i));
+				XDrawString(disp, w, gc, 20 + j * 18, 145 + i * 20, tmp.c_str(), 1);
+			}
+		XSetForeground(disp, gc, black.pixel);
+		XDrawString(disp, w, gc, 20, 305, "======================", 22);
+		XSetForeground(disp, gc, white.pixel);
+		XDrawString(disp, w, gc, 20, 325, "Player 2:", 9);
+		XDrawString(disp, w, gc, 20, 345, "Downloaded:", 11);
+		XSetForeground(disp, gc, green.pixel);
+		XDrawString(disp, w, gc, 93, 345, to_string(p2.dlData).c_str(), 1);
+		XSetForeground(disp, gc, white.pixel);
+		XDrawString(disp, w, gc, 100, 345, ",", 1);
+		XSetForeground(disp, gc, red.pixel);
+		XDrawString(disp, w, gc, 110, 345, to_string(p2.dlVirus).c_str(), 1);
+		XSetForeground(disp, gc, white.pixel);
+		XDrawString(disp, w, gc, 20, 365, "Abilities:", 10);
+		XSetForeground(disp, gc, magenta.pixel);
+		XDrawString(disp, w, gc, 88, 365, to_string(p2.nAbility).c_str(), 1);
+		if (Player::p1_turn % 2 == 0)
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				if (p2.links.at(i).identity[0] == 'D')
+					XSetForeground(disp, gc, green.pixel);
+				else if (p2.links.at(i).identity[0] == 'V')
+					XSetForeground(disp, gc, red.pixel);
+				string tmp(1, p2.links.at(i).name);
+				XDrawString(disp, w, gc, 20 + i * 36, 385, (tmp + ": " + to_string(p2.links.at(i).strength) + "   ").c_str(), 7);
+			}
+			for (int i = 4; i < 8; i++)
+			{
+				if (p2.links.at(i).identity[0] == 'D')
+					XSetForeground(disp, gc, green.pixel);
+				else if (p2.links.at(i).identity[0] == 'V')
+					XSetForeground(disp, gc, red.pixel);
+				string tmp(1, p2.links.at(i).name);
+				XDrawString(disp, w, gc, 20 + (i - 4) * 36, 405, (tmp + ": " + to_string(p2.links.at(i).strength) + "   ").c_str(), 7);
+			}
+		}
+		else
+		{
+			for (int i = 0; i < 4; i++)
+				if (p2.links.at(i).is_revealed)
+				{
+					if (p2.links.at(i).identity[0] == 'D')
+						XSetForeground(disp, gc, green.pixel);
+					else if (p2.links.at(i).identity[0] == 'V')
+						XSetForeground(disp, gc, red.pixel);
+					string tmp(1, p2.links.at(i).name);
+					XDrawString(disp, w, gc, 20 + i * 36, 385, (tmp + ": " + to_string(p2.links.at(i).strength) + "   ").c_str(), 7);
+				}
+				else
+				{
+					XSetForeground(disp, gc, yellow.pixel);
+					string tmp(1, p2.links.at(i).name);
+					XDrawString(disp, w, gc, 20 + i * 36, 385, (tmp + ": ?   ").c_str(), 7);
+				}
+			for (int i = 4; i < 8; i++)
+				if (p2.links.at(i).is_revealed)
+				{
+					if (p2.links.at(i).identity[0] == 'D')
+						XSetForeground(disp, gc, green.pixel);
+					else if (p2.links.at(i).identity[0] == 'V')
+						XSetForeground(disp, gc, red.pixel);
+					string tmp(1, p2.links.at(i).name);
+					XDrawString(disp, w, gc, 20 + (i - 4) * 36, 405, (tmp + ": " + to_string(p2.links.at(i).strength) + "   ").c_str(), 7);
+				}
+				else
+				{
+					XSetForeground(disp, gc, yellow.pixel);
+					string tmp(1, p2.links.at(i).name);
+					XDrawString(disp, w, gc, 20 + (i - 4) * 36, 405, (tmp + ": ?   ").c_str(), 7);
+				}
+		}
+		XFlush(disp);
+	}
+
+	int used = p1.nAbility;
 	while (cin >> s) {
+
+		int copy_turn = Player::p1_turn;
 		if (s == "move") {
 			cin >> which;
 			cin >> dir;
 			if (Player::p1_turn % 2 != 0) { // p1 turn
-				
+
 				if (!p1.move(which, dir)) {
 					continue;
 				}
-				
+
 
 				Player::p1_turn++;
+				used = p2.nAbility;
 				cout << g;
+				if (graphics_enabled)
+				{
+					XSetForeground(disp, gc, blue.pixel);
+					XFillRectangle(disp, w, gc, 0, 0, 172, 425);
+					XSetForeground(disp, gc, white.pixel);
+					XDrawString(disp, w, gc, 20, 25, "Player 1:", 9);
+					XDrawString(disp, w, gc, 20, 45, "Downloaded:", 11);
+					XSetForeground(disp, gc, green.pixel);
+					XDrawString(disp, w, gc, 93, 45, to_string(p1.dlData).c_str(), 1);
+					XSetForeground(disp, gc, white.pixel);
+					XDrawString(disp, w, gc, 100, 45, ",", 1);
+					XSetForeground(disp, gc, red.pixel);
+					XDrawString(disp, w, gc, 110, 45, to_string(p1.dlVirus).c_str(), 1);
+					XSetForeground(disp, gc, white.pixel);
+					XDrawString(disp, w, gc, 20, 65, "Abilities:", 10);
+					XSetForeground(disp, gc, magenta.pixel);
+					XDrawString(disp, w, gc, 88, 65, to_string(p1.nAbility).c_str(), 1);
+					if (Player::p1_turn % 2 != 0)
+					{
+						for (int i = 0; i < 4; i++)
+						{
+							if (p1.links.at(i).identity[0] == 'D')
+								XSetForeground(disp, gc, green.pixel);
+							else if (p1.links.at(i).identity[0] == 'V')
+								XSetForeground(disp, gc, red.pixel);
+							string tmp(1, p1.links.at(i).name);
+							XDrawString(disp, w, gc, 20 + i * 36, 85, (tmp + ": " + to_string(p1.links.at(i).strength) + "   ").c_str(), 7);
+						}
+						for (int i = 4; i < 8; i++)
+						{
+							if (p1.links.at(i).identity[0] == 'D')
+								XSetForeground(disp, gc, green.pixel);
+							else if (p1.links.at(i).identity[0] == 'V')
+								XSetForeground(disp, gc, red.pixel);
+							string tmp(1, p1.links.at(i).name);
+							XDrawString(disp, w, gc, 20 + (i - 4) * 36, 105, (tmp + ": " + to_string(p1.links.at(i).strength) + "   ").c_str(), 7);
+						}
+					}
+					else
+					{
+						for (int i = 0; i < 4; i++)
+							if (p1.links.at(i).is_revealed)
+							{
+								if (p1.links.at(i).identity[0] == 'D')
+									XSetForeground(disp, gc, green.pixel);
+								else if (p1.links.at(i).identity[0] == 'V')
+									XSetForeground(disp, gc, red.pixel);
+								string tmp(1, p1.links.at(i).name);
+								XDrawString(disp, w, gc, 20 + i * 36, 85, (tmp + ": " + to_string(p1.links.at(i).strength) + "   ").c_str(), 7);
+							}
+							else
+							{
+								XSetForeground(disp, gc, yellow.pixel);
+								string tmp(1, p1.links.at(i).name);
+								XDrawString(disp, w, gc, 20 + i * 36, 85, (tmp + ": ?   ").c_str(), 7);
+							}
+						for (int i = 4; i < 8; i++)
+							if (p1.links.at(i).is_revealed)
+							{
+								if (p1.links.at(i).identity[0] == 'D')
+									XSetForeground(disp, gc, green.pixel);
+								else if (p1.links.at(i).identity[0] == 'V')
+									XSetForeground(disp, gc, red.pixel);
+								string tmp(1, p1.links.at(i).name);
+								XDrawString(disp, w, gc, 20 + (i - 4) * 36, 105, (tmp + ": " + to_string(p1.links.at(i).strength) + "   ").c_str(), 7);
+							}
+							else
+							{
+								XSetForeground(disp, gc, yellow.pixel);
+								string tmp(1, p1.links.at(i).name);
+								XDrawString(disp, w, gc, 20 + (i - 4) * 36, 105, (tmp + ": ?   ").c_str(), 7);
+							}
+					}
+					XSetForeground(disp, gc, black.pixel);
+					XDrawString(disp, w, gc, 20, 125, "======================", 22);
+					for (int i = 0; i < g.gridsize; i++)
+						for (int j = 0; j < g.gridsize; j++)
+						{
+							if (g.theDisplay.at(j).at(i) == '.')
+								XSetForeground(disp, gc, white.pixel);
+							else if (g.theDisplay.at(j).at(i) == 'S')
+								XSetForeground(disp, gc, black.pixel);
+							else if (g.theDisplay.at(j).at(i) == 'm' || g.theDisplay.at(j).at(i) == 'w')
+								XSetForeground(disp, gc, magenta.pixel);
+							else if (97 <= g.theDisplay.at(j).at(i) && g.theDisplay.at(j).at(i) <= 104)
+								if (Player::p1_turn % 2 != 0)
+									if (p1.links.at((int)g.theDisplay.at(j).at(i) - 97).identity[0] == 'D')
+										XSetForeground(disp, gc, green.pixel);
+									else
+										XSetForeground(disp, gc, red.pixel);
+								else
+									if (p1.links.at((int)g.theDisplay.at(j).at(i) - 97).is_revealed)
+										if (p1.links.at((int)g.theDisplay.at(j).at(i) - 97).identity[0] == 'D')
+											XSetForeground(disp, gc, green.pixel);
+										else
+											XSetForeground(disp, gc, red.pixel);
+									else
+										XSetForeground(disp, gc, yellow.pixel);
+							else if (65 <= g.theDisplay.at(j).at(i) && g.theDisplay.at(j).at(i) <= 72)
+								if (Player::p1_turn % 2 == 0)
+									if (p2.links.at((int)g.theDisplay.at(j).at(i) - 65).identity[0] == 'D')
+										XSetForeground(disp, gc, green.pixel);
+									else
+										XSetForeground(disp, gc, red.pixel);
+								else
+									if (p2.links.at((int)g.theDisplay.at(j).at(i) - 65).is_revealed)
+										if (p2.links.at((int)g.theDisplay.at(j).at(i) - 65).identity[0] == 'D')
+											XSetForeground(disp, gc, green.pixel);
+										else
+											XSetForeground(disp, gc, red.pixel);
+									else
+										XSetForeground(disp, gc, yellow.pixel);
+							string tmp(1, g.theDisplay.at(j).at(i));
+							XDrawString(disp, w, gc, 20 + j * 18, 145 + i * 20, tmp.c_str(), 1);
+						}
+					XSetForeground(disp, gc, black.pixel);
+					XDrawString(disp, w, gc, 20, 305, "======================", 22);
+					XSetForeground(disp, gc, white.pixel);
+					XDrawString(disp, w, gc, 20, 325, "Player 2:", 9);
+					XDrawString(disp, w, gc, 20, 345, "Downloaded:", 11);
+					XSetForeground(disp, gc, green.pixel);
+					XDrawString(disp, w, gc, 93, 345, to_string(p2.dlData).c_str(), 1);
+					XSetForeground(disp, gc, white.pixel);
+					XDrawString(disp, w, gc, 100, 345, ",", 1);
+					XSetForeground(disp, gc, red.pixel);
+					XDrawString(disp, w, gc, 110, 345, to_string(p2.dlVirus).c_str(), 1);
+					XSetForeground(disp, gc, white.pixel);
+					XDrawString(disp, w, gc, 20, 365, "Abilities:", 10);
+					XSetForeground(disp, gc, magenta.pixel);
+					XDrawString(disp, w, gc, 88, 365, to_string(p2.nAbility).c_str(), 1);
+					if (Player::p1_turn % 2 == 0)
+					{
+						for (int i = 0; i < 4; i++)
+						{
+							if (p2.links.at(i).identity[0] == 'D')
+								XSetForeground(disp, gc, green.pixel);
+							else if (p2.links.at(i).identity[0] == 'V')
+								XSetForeground(disp, gc, red.pixel);
+							string tmp(1, p2.links.at(i).name);
+							XDrawString(disp, w, gc, 20 + i * 36, 385, (tmp + ": " + to_string(p2.links.at(i).strength) + "   ").c_str(), 7);
+						}
+						for (int i = 4; i < 8; i++)
+						{
+							if (p2.links.at(i).identity[0] == 'D')
+								XSetForeground(disp, gc, green.pixel);
+							else if (p2.links.at(i).identity[0] == 'V')
+								XSetForeground(disp, gc, red.pixel);
+							string tmp(1, p2.links.at(i).name);
+							XDrawString(disp, w, gc, 20 + (i - 4) * 36, 405, (tmp + ": " + to_string(p2.links.at(i).strength) + "   ").c_str(), 7);
+						}
+					}
+					else
+					{
+						for (int i = 0; i < 4; i++)
+							if (p2.links.at(i).is_revealed)
+							{
+								if (p2.links.at(i).identity[0] == 'D')
+									XSetForeground(disp, gc, green.pixel);
+								else if (p2.links.at(i).identity[0] == 'V')
+									XSetForeground(disp, gc, red.pixel);
+								string tmp(1, p2.links.at(i).name);
+								XDrawString(disp, w, gc, 20 + i * 36, 385, (tmp + ": " + to_string(p2.links.at(i).strength) + "   ").c_str(), 7);
+							}
+							else
+							{
+								XSetForeground(disp, gc, yellow.pixel);
+								string tmp(1, p2.links.at(i).name);
+								XDrawString(disp, w, gc, 20 + i * 36, 385, (tmp + ": ?   ").c_str(), 7);
+							}
+						for (int i = 4; i < 8; i++)
+							if (p2.links.at(i).is_revealed)
+							{
+								if (p2.links.at(i).identity[0] == 'D')
+									XSetForeground(disp, gc, green.pixel);
+								else if (p2.links.at(i).identity[0] == 'V')
+									XSetForeground(disp, gc, red.pixel);
+								string tmp(1, p2.links.at(i).name);
+								XDrawString(disp, w, gc, 20 + (i - 4) * 36, 405, (tmp + ": " + to_string(p2.links.at(i).strength) + "   ").c_str(), 7);
+							}
+							else
+							{
+								XSetForeground(disp, gc, yellow.pixel);
+								string tmp(1, p2.links.at(i).name);
+								XDrawString(disp, w, gc, 20 + (i - 4) * 36, 405, (tmp + ": ?   ").c_str(), 7);
+							}
+					}
+					XFlush(disp);
+				}
 				// cout the board after move
 				if (p1.win() || p2.lose()) {
 					cout << "Player 1 wins!" << endl;
@@ -389,9 +808,198 @@ int main(int argc, char* argv[]) {
 				if (!p2.move(which, dir)) {
 					continue;
 				}
-				
+
 				Player::p1_turn++;
+				used = p1.nAbility;
 				cout << g;
+				if (graphics_enabled)
+				{
+					XSetForeground(disp, gc, blue.pixel);
+					XFillRectangle(disp, w, gc, 0, 0, 172, 425);
+					XSetForeground(disp, gc, white.pixel);
+					XDrawString(disp, w, gc, 20, 25, "Player 1:", 9);
+					XDrawString(disp, w, gc, 20, 45, "Downloaded:", 11);
+					XSetForeground(disp, gc, green.pixel);
+					XDrawString(disp, w, gc, 93, 45, to_string(p1.dlData).c_str(), 1);
+					XSetForeground(disp, gc, white.pixel);
+					XDrawString(disp, w, gc, 100, 45, ",", 1);
+					XSetForeground(disp, gc, red.pixel);
+					XDrawString(disp, w, gc, 110, 45, to_string(p1.dlVirus).c_str(), 1);
+					XSetForeground(disp, gc, white.pixel);
+					XDrawString(disp, w, gc, 20, 65, "Abilities:", 10);
+					XSetForeground(disp, gc, magenta.pixel);
+					XDrawString(disp, w, gc, 88, 65, to_string(p1.nAbility).c_str(), 1);
+					if (Player::p1_turn % 2 != 0)
+					{
+						for (int i = 0; i < 4; i++)
+						{
+							if (p1.links.at(i).identity[0] == 'D')
+								XSetForeground(disp, gc, green.pixel);
+							else if (p1.links.at(i).identity[0] == 'V')
+								XSetForeground(disp, gc, red.pixel);
+							string tmp(1, p1.links.at(i).name);
+							XDrawString(disp, w, gc, 20 + i * 36, 85, (tmp + ": " + to_string(p1.links.at(i).strength) + "   ").c_str(), 7);
+						}
+						for (int i = 4; i < 8; i++)
+						{
+							if (p1.links.at(i).identity[0] == 'D')
+								XSetForeground(disp, gc, green.pixel);
+							else if (p1.links.at(i).identity[0] == 'V')
+								XSetForeground(disp, gc, red.pixel);
+							string tmp(1, p1.links.at(i).name);
+							XDrawString(disp, w, gc, 20 + (i - 4) * 36, 105, (tmp + ": " + to_string(p1.links.at(i).strength) + "   ").c_str(), 7);
+						}
+					}
+					else
+					{
+						for (int i = 0; i < 4; i++)
+							if (p1.links.at(i).is_revealed)
+							{
+								if (p1.links.at(i).identity[0] == 'D')
+									XSetForeground(disp, gc, green.pixel);
+								else if (p1.links.at(i).identity[0] == 'V')
+									XSetForeground(disp, gc, red.pixel);
+								string tmp(1, p1.links.at(i).name);
+								XDrawString(disp, w, gc, 20 + i * 36, 85, (tmp + ": " + to_string(p1.links.at(i).strength) + "   ").c_str(), 7);
+							}
+							else
+							{
+								XSetForeground(disp, gc, yellow.pixel);
+								string tmp(1, p1.links.at(i).name);
+								XDrawString(disp, w, gc, 20 + i * 36, 85, (tmp + ": ?   ").c_str(), 7);
+							}
+						for (int i = 4; i < 8; i++)
+							if (p1.links.at(i).is_revealed)
+							{
+								if (p1.links.at(i).identity[0] == 'D')
+									XSetForeground(disp, gc, green.pixel);
+								else if (p1.links.at(i).identity[0] == 'V')
+									XSetForeground(disp, gc, red.pixel);
+								string tmp(1, p1.links.at(i).name);
+								XDrawString(disp, w, gc, 20 + (i - 4) * 36, 105, (tmp + ": " + to_string(p1.links.at(i).strength) + "   ").c_str(), 7);
+							}
+							else
+							{
+								XSetForeground(disp, gc, yellow.pixel);
+								string tmp(1, p1.links.at(i).name);
+								XDrawString(disp, w, gc, 20 + (i - 4) * 36, 105, (tmp + ": ?   ").c_str(), 7);
+							}
+					}
+					XSetForeground(disp, gc, black.pixel);
+					XDrawString(disp, w, gc, 20, 125, "======================", 22);
+					for (int i = 0; i < g.gridsize; i++)
+						for (int j = 0; j < g.gridsize; j++)
+						{
+							if (g.theDisplay.at(j).at(i) == '.')
+								XSetForeground(disp, gc, white.pixel);
+							else if (g.theDisplay.at(j).at(i) == 'S')
+								XSetForeground(disp, gc, black.pixel);
+							else if (g.theDisplay.at(j).at(i) == 'm' || g.theDisplay.at(j).at(i) == 'w')
+								XSetForeground(disp, gc, magenta.pixel);
+							else if (97 <= g.theDisplay.at(j).at(i) && g.theDisplay.at(j).at(i) <= 104)
+								if (Player::p1_turn % 2 != 0)
+									if (p1.links.at((int)g.theDisplay.at(j).at(i) - 97).identity[0] == 'D')
+										XSetForeground(disp, gc, green.pixel);
+									else
+										XSetForeground(disp, gc, red.pixel);
+								else
+									if (p1.links.at((int)g.theDisplay.at(j).at(i) - 97).is_revealed)
+										if (p1.links.at((int)g.theDisplay.at(j).at(i) - 97).identity[0] == 'D')
+											XSetForeground(disp, gc, green.pixel);
+										else
+											XSetForeground(disp, gc, red.pixel);
+									else
+										XSetForeground(disp, gc, yellow.pixel);
+							else if (65 <= g.theDisplay.at(j).at(i) && g.theDisplay.at(j).at(i) <= 72)
+								if (Player::p1_turn % 2 == 0)
+									if (p2.links.at((int)g.theDisplay.at(j).at(i) - 65).identity[0] == 'D')
+										XSetForeground(disp, gc, green.pixel);
+									else
+										XSetForeground(disp, gc, red.pixel);
+								else
+									if (p2.links.at((int)g.theDisplay.at(j).at(i) - 65).is_revealed)
+										if (p2.links.at((int)g.theDisplay.at(j).at(i) - 65).identity[0] == 'D')
+											XSetForeground(disp, gc, green.pixel);
+										else
+											XSetForeground(disp, gc, red.pixel);
+									else
+										XSetForeground(disp, gc, yellow.pixel);
+							string tmp(1, g.theDisplay.at(j).at(i));
+							XDrawString(disp, w, gc, 20 + j * 18, 145 + i * 20, tmp.c_str(), 1);
+						}
+					XSetForeground(disp, gc, black.pixel);
+					XDrawString(disp, w, gc, 20, 305, "======================", 22);
+					XSetForeground(disp, gc, white.pixel);
+					XDrawString(disp, w, gc, 20, 325, "Player 2:", 9);
+					XDrawString(disp, w, gc, 20, 345, "Downloaded:", 11);
+					XSetForeground(disp, gc, green.pixel);
+					XDrawString(disp, w, gc, 93, 345, to_string(p2.dlData).c_str(), 1);
+					XSetForeground(disp, gc, white.pixel);
+					XDrawString(disp, w, gc, 100, 345, ",", 1);
+					XSetForeground(disp, gc, red.pixel);
+					XDrawString(disp, w, gc, 110, 345, to_string(p2.dlVirus).c_str(), 1);
+					XSetForeground(disp, gc, white.pixel);
+					XDrawString(disp, w, gc, 20, 365, "Abilities:", 10);
+					XSetForeground(disp, gc, magenta.pixel);
+					XDrawString(disp, w, gc, 88, 365, to_string(p2.nAbility).c_str(), 1);
+					if (Player::p1_turn % 2 == 0)
+					{
+						for (int i = 0; i < 4; i++)
+						{
+							if (p2.links.at(i).identity[0] == 'D')
+								XSetForeground(disp, gc, green.pixel);
+							else if (p2.links.at(i).identity[0] == 'V')
+								XSetForeground(disp, gc, red.pixel);
+							string tmp(1, p2.links.at(i).name);
+							XDrawString(disp, w, gc, 20 + i * 36, 385, (tmp + ": " + to_string(p2.links.at(i).strength) + "   ").c_str(), 7);
+						}
+						for (int i = 4; i < 8; i++)
+						{
+							if (p2.links.at(i).identity[0] == 'D')
+								XSetForeground(disp, gc, green.pixel);
+							else if (p2.links.at(i).identity[0] == 'V')
+								XSetForeground(disp, gc, red.pixel);
+							string tmp(1, p2.links.at(i).name);
+							XDrawString(disp, w, gc, 20 + (i - 4) * 36, 405, (tmp + ": " + to_string(p2.links.at(i).strength) + "   ").c_str(), 7);
+						}
+					}
+					else
+					{
+						for (int i = 0; i < 4; i++)
+							if (p2.links.at(i).is_revealed)
+							{
+								if (p2.links.at(i).identity[0] == 'D')
+									XSetForeground(disp, gc, green.pixel);
+								else if (p2.links.at(i).identity[0] == 'V')
+									XSetForeground(disp, gc, red.pixel);
+								string tmp(1, p2.links.at(i).name);
+								XDrawString(disp, w, gc, 20 + i * 36, 385, (tmp + ": " + to_string(p2.links.at(i).strength) + "   ").c_str(), 7);
+							}
+							else
+							{
+								XSetForeground(disp, gc, yellow.pixel);
+								string tmp(1, p2.links.at(i).name);
+								XDrawString(disp, w, gc, 20 + i * 36, 385, (tmp + ": ?   ").c_str(), 7);
+							}
+						for (int i = 4; i < 8; i++)
+							if (p2.links.at(i).is_revealed)
+							{
+								if (p2.links.at(i).identity[0] == 'D')
+									XSetForeground(disp, gc, green.pixel);
+								else if (p2.links.at(i).identity[0] == 'V')
+									XSetForeground(disp, gc, red.pixel);
+								string tmp(1, p2.links.at(i).name);
+								XDrawString(disp, w, gc, 20 + (i - 4) * 36, 405, (tmp + ": " + to_string(p2.links.at(i).strength) + "   ").c_str(), 7);
+							}
+							else
+							{
+								XSetForeground(disp, gc, yellow.pixel);
+								string tmp(1, p2.links.at(i).name);
+								XDrawString(disp, w, gc, 20 + (i - 4) * 36, 405, (tmp + ": ?   ").c_str(), 7);
+							}
+					}
+					XFlush(disp);
+				}
 				// cout the board after move
 				if (p1.win() || p2.lose()) {
 					cout << "Player 1 wins!" << endl;
@@ -433,15 +1041,31 @@ int main(int argc, char* argv[]) {
 			}
 		}
 
+
 		else if (s == "ability") {
 			int which;
 			cin >> which;
+			if (copy_turn == Player::p1_turn) {
+				if (Player::p1_turn % 2 == 1) { // if it is p1 turn
+					if (used == p1.nAbility + 1) {
+						cout << "You can only use one ability card each turn" << endl;
+						continue;
+					}
+				}
+				else { // if it is p2_turn
+					if (used == p2.nAbility + 1) {
+						cout << "You can only use one ability card each turn" << endl;
+						continue;
+					}
+				}
+			}
 			if (which >= 6 || which <= 0) {
 				cout << "Invalid ID!" << endl;
 				string invalid;
 				getline(cin, invalid);
 				continue;
 			}
+
 			if (Player::p1_turn % 2 != 0) { // p1 turn
 				if (p1.abilities.at(which - 1)->get_name() == "Firewall") {
 					int y;
@@ -454,6 +1078,14 @@ int main(int argc, char* argv[]) {
 					char which_on_board;
 					cin >> which_on_board;
 					p1.apply(which, which_on_board);
+					if (p1.win() || p2.lose()) {
+						cout << "Player 1 wins!" << endl;
+						return 0;
+					}
+					else if (p2.win() || p1.lose()) {
+						cout << "Player 2 wins!" << endl;
+						return 0;
+					}
 				}
 			}
 			else { // p2 turn
@@ -468,9 +1100,205 @@ int main(int argc, char* argv[]) {
 					char which_on_board;
 					cin >> which_on_board;
 					p2.apply(which, which_on_board);
+					if (p1.win() || p2.lose()) {
+						cout << "Player 1 wins!" << endl;
+						return 0;
+					}
+					else if (p2.win() || p1.lose()) {
+						cout << "Player 2 wins!" << endl;
+						return 0;
+					}
 				}
 			}
 
+			if (graphics_enabled)
+			{
+				XSetForeground(disp, gc, blue.pixel);
+				XFillRectangle(disp, w, gc, 0, 0, 172, 425);
+				XSetForeground(disp, gc, white.pixel);
+				XDrawString(disp, w, gc, 20, 25, "Player 1:", 9);
+				XDrawString(disp, w, gc, 20, 45, "Downloaded:", 11);
+				XSetForeground(disp, gc, green.pixel);
+				XDrawString(disp, w, gc, 93, 45, to_string(p1.dlData).c_str(), 1);
+				XSetForeground(disp, gc, white.pixel);
+				XDrawString(disp, w, gc, 100, 45, ",", 1);
+				XSetForeground(disp, gc, red.pixel);
+				XDrawString(disp, w, gc, 110, 45, to_string(p1.dlVirus).c_str(), 1);
+				XSetForeground(disp, gc, white.pixel);
+				XDrawString(disp, w, gc, 20, 65, "Abilities:", 10);
+				XSetForeground(disp, gc, magenta.pixel);
+				XDrawString(disp, w, gc, 88, 65, to_string(p1.nAbility).c_str(), 1);
+				if (Player::p1_turn % 2 != 0)
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						if (p1.links.at(i).identity[0] == 'D')
+							XSetForeground(disp, gc, green.pixel);
+						else if (p1.links.at(i).identity[0] == 'V')
+							XSetForeground(disp, gc, red.pixel);
+						string tmp(1, p1.links.at(i).name);
+						XDrawString(disp, w, gc, 20 + i * 36, 85, (tmp + ": " + to_string(p1.links.at(i).strength) + "   ").c_str(), 7);
+					}
+					for (int i = 4; i < 8; i++)
+					{
+						if (p1.links.at(i).identity[0] == 'D')
+							XSetForeground(disp, gc, green.pixel);
+						else if (p1.links.at(i).identity[0] == 'V')
+							XSetForeground(disp, gc, red.pixel);
+						string tmp(1, p1.links.at(i).name);
+						XDrawString(disp, w, gc, 20 + (i - 4) * 36, 105, (tmp + ": " + to_string(p1.links.at(i).strength) + "   ").c_str(), 7);
+					}
+				}
+				else
+				{
+					for (int i = 0; i < 4; i++)
+						if (p1.links.at(i).is_revealed)
+						{
+							if (p1.links.at(i).identity[0] == 'D')
+								XSetForeground(disp, gc, green.pixel);
+							else if (p1.links.at(i).identity[0] == 'V')
+								XSetForeground(disp, gc, red.pixel);
+							string tmp(1, p1.links.at(i).name);
+							XDrawString(disp, w, gc, 20 + i * 36, 85, (tmp + ": " + to_string(p1.links.at(i).strength) + "   ").c_str(), 7);
+						}
+						else
+						{
+							XSetForeground(disp, gc, yellow.pixel);
+							string tmp(1, p1.links.at(i).name);
+							XDrawString(disp, w, gc, 20 + i * 36, 85, (tmp + ": ?   ").c_str(), 7);
+						}
+					for (int i = 4; i < 8; i++)
+						if (p1.links.at(i).is_revealed)
+						{
+							if (p1.links.at(i).identity[0] == 'D')
+								XSetForeground(disp, gc, green.pixel);
+							else if (p1.links.at(i).identity[0] == 'V')
+								XSetForeground(disp, gc, red.pixel);
+							string tmp(1, p1.links.at(i).name);
+							XDrawString(disp, w, gc, 20 + (i - 4) * 36, 105, (tmp + ": " + to_string(p1.links.at(i).strength) + "   ").c_str(), 7);
+						}
+						else
+						{
+							XSetForeground(disp, gc, yellow.pixel);
+							string tmp(1, p1.links.at(i).name);
+							XDrawString(disp, w, gc, 20 + (i - 4) * 36, 105, (tmp + ": ?   ").c_str(), 7);
+						}
+				}
+				XSetForeground(disp, gc, black.pixel);
+				XDrawString(disp, w, gc, 20, 125, "======================", 22);
+				for (int i = 0; i < g.gridsize; i++)
+					for (int j = 0; j < g.gridsize; j++)
+					{
+						if (g.theDisplay.at(j).at(i) == '.')
+							XSetForeground(disp, gc, white.pixel);
+						else if (g.theDisplay.at(j).at(i) == 'S')
+							XSetForeground(disp, gc, black.pixel);
+						else if (g.theDisplay.at(j).at(i) == 'm' || g.theDisplay.at(j).at(i) == 'w')
+							XSetForeground(disp, gc, magenta.pixel);
+						else if (97 <= g.theDisplay.at(j).at(i) && g.theDisplay.at(j).at(i) <= 104)
+							if (Player::p1_turn % 2 != 0)
+								if (p1.links.at((int)g.theDisplay.at(j).at(i) - 97).identity[0] == 'D')
+									XSetForeground(disp, gc, green.pixel);
+								else
+									XSetForeground(disp, gc, red.pixel);
+							else
+								if (p1.links.at((int)g.theDisplay.at(j).at(i) - 97).is_revealed)
+									if (p1.links.at((int)g.theDisplay.at(j).at(i) - 97).identity[0] == 'D')
+										XSetForeground(disp, gc, green.pixel);
+									else
+										XSetForeground(disp, gc, red.pixel);
+								else
+									XSetForeground(disp, gc, yellow.pixel);
+						else if (65 <= g.theDisplay.at(j).at(i) && g.theDisplay.at(j).at(i) <= 72)
+							if (Player::p1_turn % 2 == 0)
+								if (p2.links.at((int)g.theDisplay.at(j).at(i) - 65).identity[0] == 'D')
+									XSetForeground(disp, gc, green.pixel);
+								else
+									XSetForeground(disp, gc, red.pixel);
+							else
+								if (p2.links.at((int)g.theDisplay.at(j).at(i) - 65).is_revealed)
+									if (p2.links.at((int)g.theDisplay.at(j).at(i) - 65).identity[0] == 'D')
+										XSetForeground(disp, gc, green.pixel);
+									else
+										XSetForeground(disp, gc, red.pixel);
+								else
+									XSetForeground(disp, gc, yellow.pixel);
+						string tmp(1, g.theDisplay.at(j).at(i));
+						XDrawString(disp, w, gc, 20 + j * 18, 145 + i * 20, tmp.c_str(), 1);
+					}
+				XSetForeground(disp, gc, black.pixel);
+				XDrawString(disp, w, gc, 20, 305, "======================", 22);
+				XSetForeground(disp, gc, white.pixel);
+				XDrawString(disp, w, gc, 20, 325, "Player 2:", 9);
+				XDrawString(disp, w, gc, 20, 345, "Downloaded:", 11);
+				XSetForeground(disp, gc, green.pixel);
+				XDrawString(disp, w, gc, 93, 345, to_string(p2.dlData).c_str(), 1);
+				XSetForeground(disp, gc, white.pixel);
+				XDrawString(disp, w, gc, 100, 345, ",", 1);
+				XSetForeground(disp, gc, red.pixel);
+				XDrawString(disp, w, gc, 110, 345, to_string(p2.dlVirus).c_str(), 1);
+				XSetForeground(disp, gc, white.pixel);
+				XDrawString(disp, w, gc, 20, 365, "Abilities:", 10);
+				XSetForeground(disp, gc, magenta.pixel);
+				XDrawString(disp, w, gc, 88, 365, to_string(p2.nAbility).c_str(), 1);
+				if (Player::p1_turn % 2 == 0)
+				{
+					for (int i = 0; i < 4; i++)
+					{
+						if (p2.links.at(i).identity[0] == 'D')
+							XSetForeground(disp, gc, green.pixel);
+						else if (p2.links.at(i).identity[0] == 'V')
+							XSetForeground(disp, gc, red.pixel);
+						string tmp(1, p2.links.at(i).name);
+						XDrawString(disp, w, gc, 20 + i * 36, 385, (tmp + ": " + to_string(p2.links.at(i).strength) + "   ").c_str(), 7);
+					}
+					for (int i = 4; i < 8; i++)
+					{
+						if (p2.links.at(i).identity[0] == 'D')
+							XSetForeground(disp, gc, green.pixel);
+						else if (p2.links.at(i).identity[0] == 'V')
+							XSetForeground(disp, gc, red.pixel);
+						string tmp(1, p2.links.at(i).name);
+						XDrawString(disp, w, gc, 20 + (i - 4) * 36, 405, (tmp + ": " + to_string(p2.links.at(i).strength) + "   ").c_str(), 7);
+					}
+				}
+				else
+				{
+					for (int i = 0; i < 4; i++)
+						if (p2.links.at(i).is_revealed)
+						{
+							if (p2.links.at(i).identity[0] == 'D')
+								XSetForeground(disp, gc, green.pixel);
+							else if (p2.links.at(i).identity[0] == 'V')
+								XSetForeground(disp, gc, red.pixel);
+							string tmp(1, p2.links.at(i).name);
+							XDrawString(disp, w, gc, 20 + i * 36, 385, (tmp + ": " + to_string(p2.links.at(i).strength) + "   ").c_str(), 7);
+						}
+						else
+						{
+							XSetForeground(disp, gc, yellow.pixel);
+							string tmp(1, p2.links.at(i).name);
+							XDrawString(disp, w, gc, 20 + i * 36, 385, (tmp + ": ?   ").c_str(), 7);
+						}
+					for (int i = 4; i < 8; i++)
+						if (p2.links.at(i).is_revealed)
+						{
+							if (p2.links.at(i).identity[0] == 'D')
+								XSetForeground(disp, gc, green.pixel);
+							else if (p2.links.at(i).identity[0] == 'V')
+								XSetForeground(disp, gc, red.pixel);
+							string tmp(1, p2.links.at(i).name);
+							XDrawString(disp, w, gc, 20 + (i - 4) * 36, 405, (tmp + ": " + to_string(p2.links.at(i).strength) + "   ").c_str(), 7);
+						}
+						else
+						{
+							XSetForeground(disp, gc, yellow.pixel);
+							string tmp(1, p2.links.at(i).name);
+							XDrawString(disp, w, gc, 20 + (i - 4) * 36, 405, (tmp + ": ?   ").c_str(), 7);
+						}
+				}
+				XFlush(disp);
+			}
 		}
 		else if (s == "board") {
 			cout << "Player 1:" << endl;
@@ -554,12 +1382,10 @@ int main(int argc, char* argv[]) {
 		}
 		else if (s == "sequence") { // I hate this dude, seriously!!
 			string content;
-
 			string file_name;
 			cin >> file_name;
-
-
 			ifstream myfile{ file_name };
+
 			while (getline(myfile, content)) {
 				stringstream ss(content);
 				string command;
@@ -574,9 +1400,9 @@ int main(int argc, char* argv[]) {
 						if (!p1.move(which, dir)) {
 							continue;
 						}
-						
 						Player::p1_turn++;
-						// cout the board after move
+						copy_turn = Player::p1_turn;
+						used = p2.nAbility;
 						if (p1.win() || p2.lose()) {
 							cout << "Player 1 wins!" << endl;
 							return 0;
@@ -585,14 +1411,16 @@ int main(int argc, char* argv[]) {
 							cout << "Player 2 wins!" << endl;
 							return 0;
 						}
+						cout << g;
 					}
 					else { // p2 turn
 						if (!p2.move(which, dir)) {
 							continue;
 						}
-						
+
 						Player::p1_turn++;
-						// cout the board after move
+						copy_turn = Player::p1_turn;
+						used = p1.nAbility;
 						if (p1.win() || p2.lose()) {
 							cout << "Player 1 wins!" << endl;
 							return 0;
@@ -601,6 +1429,7 @@ int main(int argc, char* argv[]) {
 							cout << "Player 2 wins!" << endl;
 							return 0;
 						}
+						cout << g;
 					}
 				}
 				else if (command == "abilities") {
@@ -633,6 +1462,20 @@ int main(int argc, char* argv[]) {
 					}
 				}
 				else if (command == "ability") {
+					if (copy_turn == Player::p1_turn) {
+						if (Player::p1_turn % 2 == 1) { // if it is p1 turn
+							if (used == p1.nAbility + 1) {
+								cout << "You can only use one ability card each turn" << endl;
+								continue;
+							}
+						}
+						else { // if it is p2_turn
+							if (used == p2.nAbility + 1) {
+								cout << "You can only use one ability card each turn" << endl;
+								continue;
+							}
+						}
+					}
 					int which;
 					ss >> which;
 					if (which >= 6 || which <= 0) {
@@ -653,7 +1496,15 @@ int main(int argc, char* argv[]) {
 
 							char which_on_board;
 							ss >> which_on_board;
-							p1.apply(which_on_board, which);
+							p1.apply(which, which_on_board);
+							if (p1.win() || p2.lose()) {
+								cout << "Player 1 wins!" << endl;
+								return 0;
+							}
+							else if (p2.win() || p1.lose()) {
+								cout << "Player 2 wins!" << endl;
+								return 0;
+							}
 						}
 					}
 					else { // p2 turn
@@ -667,7 +1518,15 @@ int main(int argc, char* argv[]) {
 						else {
 							char which_on_board;
 							ss >> which_on_board;
-							p2.apply(which_on_board, which);
+							p2.apply(which, which_on_board);
+							if (p1.win() || p2.lose()) {
+								cout << "Player 1 wins!" << endl;
+								return 0;
+							}
+							else if (p2.win() || p1.lose()) {
+								cout << "Player 2 wins!" << endl;
+								return 0;
+							}
 						}
 					}
 				}

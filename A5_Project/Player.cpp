@@ -192,6 +192,10 @@ bool Player::move(char name, string dir) {
 		cout << "Don't move other's links, you dumbass!" << endl;
 		return false;
 	}
+	if (l.is_alive == false) {
+		cout << "The Link is no more available" << endl;
+		return false;
+	}
 	int step = l.is_boost + 1;
 	if (dir == "left") {
 		l.x -= step;
