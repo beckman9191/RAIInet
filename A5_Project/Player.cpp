@@ -44,6 +44,10 @@ bool Player::apply(int n, char name) { // LinkBoost, Download, Polarize, Scan
 
 	for (int i = 0; i < size; ++i) {
 		if (name == links.at(i).name) {
+			if (links.at(i).is_alive == false) {
+				cout << "The Link is no longer available" << endl;
+				return false;
+			}
 			if (abilities.at(num)->get_name() == "Linkboost") {
 				abilities.at(num)->apply(links.at(i));
 				gm.notify_boost(links.at(i));
@@ -64,6 +68,10 @@ bool Player::apply(int n, char name) { // LinkBoost, Download, Polarize, Scan
 	}
 	for (int j = 0; j < size; ++j) {
 		if (name == p->links.at(j).name) {
+			if (p->links.at(j).is_alive == false) {
+				cout << "The Link is no longer available" << endl;
+				return false;
+			}
 			if (abilities.at(num)->get_name() == "Linkboost") {
 				cout << "Can't boost opponent's link." << endl;
 				return false;

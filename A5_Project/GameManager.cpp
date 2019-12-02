@@ -116,11 +116,29 @@ void GameManager::notify_download(Link l) {
 
 	}
 	g->theDisplay.at(x).at(y) = '.';
+	for (int i = 0; i < 8; ++i) {
+		if (p1->links.at(i).name == l.name) {
+			p1->links.at(i).is_revealed = true;
+			p1->links.at(i).is_alive = false;
+			p1->links.at(i).x = 10;
+			p1->links.at(i).y = 10;
+
+		}
+	}
+	for (int i = 0; i < 8; ++i) {
+		if (p2->links.at(i).name == l.name) {
+			p2->links.at(i).is_revealed = true;
+			p2->links.at(i).is_alive = false;
+			p2->links.at(i).x = 10;
+			p2->links.at(i).y = 10;
+		}
+	}
 
 	int p1_wall_size = p1->wall_xy.size();
 	while (k < p1_wall_size) { // check if the current cell has firewall or no
 		if ((p1->wall_xy[j] == x) && (p1->wall_xy[k] == y)) {
 			g->theDisplay.at(x).at(y) = 'w';
+
 		}
 		j += 2;
 		k += 2;
